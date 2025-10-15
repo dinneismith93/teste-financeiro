@@ -2,30 +2,112 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Teste Financeiro Gratuito</title>
+    <title>Teste Seu Potencial Financeiro</title>
     <style>
         body {
-            font-family: Arial;
-            background: #1a2a6c;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #004aad);
             color: white;
             text-align: center;
-            padding: 50px;
+            padding: 40px 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+            line-height: 1.6;
         }
         .btn {
-            background: #28a745;
+            background: linear-gradient(45deg, #28a745, #20c997);
             color: white;
-            padding: 15px 30px;
+            padding: 18px 35px;
             border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            margin: 10px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            font-size: 2.5em;
+        }
+        .feature {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .feature h3 {
+            margin-bottom: 10px;
+            color: #ffd700;
         }
     </style>
 </head>
 <body>
-    <h1>💰 Teste Financeiro GRATUITO</h1>
-    <p>Descubra seu potencial de enriquecer</p>
-    <p><strong>Totalmente gratuito</strong> - Pague apenas se quiser relatório completo</p>
-    <button class="btn">Começar Teste Gratuito</button>
+    <div class="container">
+        <h1>🧠 Teste Seu QI Financeiro</h1>
+        
+        <div class="icons">
+            <span>📈</span>
+            <span>💡</span>
+            <span>🎯</span>
+            <span>🚀</span>
+        </div>
+        
+        <p>Descubra sua capacidade mental para criar riqueza e tomar decisões financeiras inteligentes</p>
+        
+        <div class="feature">
+            <h3>🔍 Análise Completa</h3>
+            <p>Avalie sua mentalidade, estratégias e potencial de crescimento financeiro</p>
+        </div>
+        
+        <div class="feature">
+            <h3>🎯 Resultado Personalizado</h3>
+            <p>Receba insights sobre seu perfil único de investidor</p>
+        </div>
+        
+        <div class="feature">
+            <h3>💡 Estratégias Comprovadas</h3>
+            <p>Descubra técnicas baseadas em neurociência e finanças comportamentais</p>
+        </div>
+        
+        <button class="btn">Iniciar Teste de QI Financeiro</button>
+        
+        <p style="font-size: 0.9em; opacity: 0.8; margin-top: 30px;">
+            Teste desenvolvido por especialistas em psicologia financeira
+        </p>
+    </div>
+
+    <script>
+        // Aqui vai a lógica do teste (vamos implementar depois)
+        document.querySelector('.btn').addEventListener('click', function() {
+            alert('Teste em desenvolvimento - Em breve perguntas completas!');
+        });
+    </script>
 </body>
 </html>
