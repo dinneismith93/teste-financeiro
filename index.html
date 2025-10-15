@@ -2,34 +2,230 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Teste QI Financeiro</title>
+    <title>Teste Seu QI Financeiro</title>
     <style>
-        body {
-            font-family: Arial;
-            background: #1a2a6c;
-            color: white;
-            text-align: center;
-            padding: 50px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #004aad);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        header {
+            background: rgba(0,0,0,0.3);
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .step {
+            display: none;
+        }
+        
+        .step.active {
+            display: block;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+            padding: 25px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+        }
+        
+        .options label {
+            display: block;
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
         .btn {
             background: #28a745;
             color: white;
             padding: 15px 30px;
             border: none;
             border-radius: 5px;
-            font-size: 18px;
-            margin: 10px;
             cursor: pointer;
+            font-size: 1.1em;
+            margin: 10px;
+        }
+        
+        .btn-pay {
+            background: #009ee3;
+            font-size: 1.3em;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .result {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .score {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ffd700;
+            margin: 20px 0;
+        }
+        
+        .payment-info {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .price {
+            font-size: 2em;
+            color: #009ee3;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>🧠 Teste QI Financeiro</h1>
-    <p>Clique no botão para testar se funciona:</p>
-    <button class="btn" onclick="alert('JavaScript funcionando!')">Testar Botão</button>
-    
+    <div class="container">
+        <header>
+            <h1>🧠 Teste Seu QI Financeiro</h1>
+            <p>Descubra sua capacidade mental para criar riqueza</p>
+        </header>
+        
+        <div class="content">
+            <!-- Introdução -->
+            <div class="step active" id="step0">
+                <h2>Analise Seu Potencial Financeiro</h2>
+                <p>Este teste avalia sua mentalidade e estratégias financeiras.</p>
+                
+                <div style="text-align: left; margin: 25px 0;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <h3>🔍 O que será analisado:</h3>
+                        <ul style="margin: 15px 0; padding-left: 20px;">
+                            <li>Sua mentalidade sobre dinheiro</li>
+                            <li>Hábitos de consumo e investimento</li>
+                            <li>Capacidade de planejamento</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p><strong>Teste 100% gratuito</strong></p>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn" onclick="showStep(1)">Iniciar Análise Financeira</button>
+                </div>
+            </div>
+            
+            <!-- Pergunta 1 -->
+            <div class="step" id="step1">
+                <div class="question">
+                    <h3>💭 Quando você pensa em "riqueza", o que vem à mente?</h3>
+                    <div class="options">
+                        <input type="radio" id="q1a" name="q1" value="3">
+                        <label for="q1a">Liberdade para fazer o que quiser</label>
+                        
+                        <input type="radio" id="q1b" name="q1" value="2">
+                        <label for="q1b">Segurança e estabilidade</label>
+                        
+                        <input type="radio" id="q1c" name="q1" value="1">
+                        <label for="q1c">Bens materiais e conforto</label>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="btn" onclick="showStep(0)">Voltar</button>
+                    <button class="btn" onclick="showStep(2)">Próxima</button>
+                </div>
+            </div>
+            
+            <!-- Pergunta 2 -->
+            <div class="step" id="step2">
+                <div class="question">
+                    <h3>📊 Ao receber dinheiro extra, sua reação é:</h3>
+                    <div class="options">
+                        <input type="radio" id="q2a" name="q2" value="3">
+                        <label for="q2a">Aplicar para gerar mais dinheiro</label>
+                        
+                        <input type="radio" id="q2b" name="q2" value="2">
+                        <label for="q2b">Guardar para emergências</label>
+                        
+                        <input type="radio" id="q2c" name="q2" value="1">
+                        <label for="q2c">Comprar algo que quero</label>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="btn" onclick="showStep(1)">Voltar</button>
+                    <button class="btn" onclick="showStep(3)">Próxima</button>
+                </div>
+            </div>
+            
+            <!-- Mais perguntas... -->
+            
+            <!-- Resultado Final -->
+            <div class="step" id="step6">
+                <div class="result">
+                    <h2>Análise Concluída! 🎉</h2>
+                    <p>Sua pontuação:</p>
+                    <div class="score">78%</div>
+                    <h3>Potencial para Desenvolver Riqueza</h3>
+                    
+                    <div class="payment-info">
+                        <h3>💎 Quer o Relatório COMPLETO?</h3>
+                        <p>Desbloqueie análise detalhada:</p>
+                        <p class="price">R$ 4,99</p>
+                        <button class="btn btn-pay" onclick="alert('Integração com Mercado Pago aqui!')">Quero Relatório Completo</button>
+                    </div>
+                    
+                    <button class="btn" onclick="showStep(0)">Fazer Teste Novamente</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        alert('Página carregada! JavaScript está funcionando!');
+        function showStep(stepNumber) {
+            // Esconde todas as etapas
+            const steps = document.querySelectorAll('.step');
+            steps.forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            // Mostra a etapa especificada
+            const stepToShow = document.getElementById('step' + stepNumber);
+            if (stepToShow) {
+                stepToShow.classList.add('active');
+            }
+        }
+        
+        // Inicia na etapa 0
+        showStep(0);
     </script>
 </body>
 </html>
