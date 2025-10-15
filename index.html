@@ -3,154 +3,478 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste de QI Financeiro</title>
+    <title>QI Financeiro Elite - Teste Seu Potencial Milionário</title>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            color: #333;
+            background: linear-gradient(135deg, #0c0c0c, #1a1a2e, #16213e);
+            color: #ffffff;
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
         }
         
+        /* Elementos de fundo sofisticados */
+        .bg-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .bg-element {
+            position: absolute;
+            opacity: 0.1;
+            font-size: 2rem;
+        }
+        
+        .money-symbol { color: #f1c40f; }
+        .brain-symbol { color: #9b59b6; }
+        .chart-symbol { color: #2ecc71; }
+        .diamond-symbol { color: #3498db; }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+            position: relative;
             overflow: hidden;
         }
-        
-        header {
-            background: linear-gradient(to right, #2c3e50, #4a6491);
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
         }
-        
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(45deg, #fff, #f8f9fa, #e9ecef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
         }
-        
+
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
         .content {
-            padding: 30px;
+            padding: 50px;
+            color: #ffffff;
         }
-        
+
         .step {
             display: none;
+            animation: fadeInUp 0.8s ease;
         }
-        
+
         .step.active {
             display: block;
         }
-        
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .btn {
-            display: block;
-            background: #28a745;
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 15px 30px;
+            padding: 22px 45px;
             border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
+            border-radius: 50px;
             cursor: pointer;
-            margin: 20px auto;
+            font-size: 1.3rem;
+            font-weight: 700;
+            transition: all 0.4s ease;
             text-align: center;
-            width: 250px;
-        }
-        
-        .btn-option {
-            display: block;
-            background: #6c757d;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin: 10px 0;
-            width: 100%;
-            text-align: left;
-        }
-        
-        .question {
-            margin: 20px 0;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-        
-        .progress-bar {
-            height: 8px;
-            background: #e9ecef;
-            border-radius: 4px;
-            margin: 20px 0;
+            text-decoration: none;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+            margin: 20px;
+            position: relative;
             overflow: hidden;
         }
-        
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-pay {
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            font-size: 1.5rem;
+            padding: 25px 50px;
+            display: block;
+            width: 100%;
+            margin: 40px 0;
+            box-shadow: 0 15px 35px rgba(0, 176, 155, 0.4);
+        }
+
+        .btn-option {
+            display: block;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            padding: 20px 25px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 15px 0;
+            width: 100%;
+            text-align: left;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-option:hover {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateX(15px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .question {
+            margin-bottom: 40px;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            border-left: 6px solid #667eea;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .question h3 {
+            margin-bottom: 25px;
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .progress-container {
+            margin: 50px 0;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         .progress {
             height: 100%;
-            background: #28a745;
+            background: linear-gradient(135deg, #00b09b, #96c93d);
             width: 0%;
+            transition: width 0.6s ease;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .result {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .payment-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+            padding: 50px;
+            border-radius: 25px;
+            margin: 50px 0;
+            text-align: center;
+            color: white;
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .payment-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .price {
+            font-size: 4.5rem;
+            color: white;
+            font-weight: 800;
+            margin: 30px 0;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .payment-method {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
         footer {
             text-align: center;
-            padding: 20px;
-            background: #f8f9fa;
-            color: #6c757d;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .payment-section {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
+
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+            padding: 15px 30px;
+            border-radius: 25px;
+            margin: 25px 0;
+            font-weight: 600;
+            border: 2px solid rgba(46, 204, 113, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        #checkout-container {
+            margin: 40px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .loading {
             text-align: center;
+            padding: 40px;
         }
-        
-        .price {
-            font-size: 2rem;
-            color: #dc3545;
-            font-weight: bold;
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 25px;
+        }
+
+        .result-score {
+            font-size: 6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 30px 0;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content {
+                padding: 30px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-section {
+                padding: 30px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Elementos de fundo dinâmicos -->
+    <div class="bg-elements" id="bgElements"></div>
+    
     <div class="container">
         <header>
-            <h1>QI FINANCEIRO PRO</h1>
-            <p>Descubra Seu Potencial para Criar Riqueza</p>
+            <div class="header-content">
+                <h1>QI FINANCEIRO ELITE</h1>
+                <p class="subtitle">Descubra Seu Potencial Milionário</p>
+            </div>
         </header>
         
         <div class="content">
-            <div class="progress-bar">
-                <div class="progress" id="progress"></div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
             </div>
             
             <!-- TELA INICIAL -->
             <div class="step active" id="step0">
-                <h2 style="text-align: center;">Avalie Sua Inteligência Financeira</h2>
+                <h2 style="text-align: center; margin-bottom: 40px; color: #ffffff; font-size: 2.2rem;">
+                    🧠 AVALIE SUA INTELIGÊNCIA MILIONÁRIA
+                </h2>
                 
-                <p>Este teste avalia 10 dimensões da sua mente financeira e fornece um relatório completo personalizado.</p>
-                
-                <div style="text-align: center; margin-top: 30px;">
-                    <button class="btn" onclick="showStep(1)">INICIAR TESTE AVANÇADO</button>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🚀</div>
+                        <h4>Mentalidade de Elite</h4>
+                        <p>Padrões de pensamento dos mais ricos</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💎</div>
+                        <h4>Estratégias Exclusivas</h4>
+                        <p>Métodos comprovados de enriquecimento</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📊</div>
+                        <h4>Análise Profunda</h4>
+                        <p>Diagnóstico completo do seu potencial</p>
+                    </div>
                 </div>
                 
-                <div style="text-align: center; margin-top: 20px; color: #666;">
-                    🔒 Teste Científico • 100% Confidencial
+                <div style="text-align: center; margin-top: 50px;">
+                    <button class="btn" onclick="showStep(1)">
+                        🚀 INICIAR TESTE ELITE
+                    </button>
+                </div>
+                
+                <div class="security-badge">
+                    🔒 Teste Científico Avançado • 100% Confidencial
                 </div>
             </div>
             
-            <!-- PERGUNTA 1 -->
+            <!-- PERGUNTAS (mantenha as 10 perguntas anteriores) -->
             <div class="step" id="step1">
                 <div class="question">
                     <h3>1. Quando você recebe dinheiro, qual é seu primeiro pensamento?</h3>
@@ -161,124 +485,59 @@
                 </div>
             </div>
             
-            <!-- PERGUNTA 2 -->
-            <div class="step" id="step2">
-                <div class="question">
-                    <h3>2. Como você vê oportunidades de investimento?</h3>
-                    <button class="btn-option" onclick="showStep(3)">Prefiro evitar riscos e manter o dinheiro seguro</button>
-                    <button class="btn-option" onclick="showStep(3)">Analiso cuidadosamente antes de qualquer decisão</button>
-                    <button class="btn-option" onclick="showStep(3)">Busco ativamente oportunidades com bom potencial</button>
-                    <button class="btn-option" onclick="showStep(3)">Crio minhas próprias oportunidades de investimento</button>
-                </div>
-            </div>
+            <!-- ... (mantenha as outras 9 perguntas) ... -->
             
-            <!-- PERGUNTA 3 -->
-            <div class="step" id="step3">
-                <div class="question">
-                    <h3>3. Qual sua estratégia para o futuro financeiro?</h3>
-                    <button class="btn-option" onclick="showStep(4)">Vivo um dia de cada vez, sem planejamento</button>
-                    <button class="btn-option" onclick="showStep(4)">Tenho algumas metas, mas sem plano concreto</button>
-                    <button class="btn-option" onclick="showStep(4)">Planejo meus objetivos de curto e longo prazo</button>
-                    <button class="btn-option" onclick="showStep(4)">Tenho um plano detalhado para os próximos 10 anos</button>
-                </div>
-            </div>
-            
-            <!-- PERGUNTA 4 -->
-            <div class="step" id="step4">
-                <div class="question">
-                    <h3>4. Como você lida com dívidas?</h3>
-                    <button class="btn-option" onclick="showStep(5)">Evito qualquer tipo de dívida a qualquer custo</button>
-                    <button class="btn-option" onclick="showStep(5)">Uso crédito apenas para necessidades básicas</button>
-                    <button class="btn-option" onclick="showStep(5)">Uso dívidas de forma estratégica quando vantajoso</button>
-                    <button class="btn-option" onclick="showStep(5)">Uso alavancagem financeira para multiplicar ganhos</button>
-                </div>
-            </div>
-            
-            <!-- PERGUNTA 5 -->
-            <div class="step" id="step5">
-                <div class="question">
-                    <h3>5. O que você faz para aumentar sua renda?</h3>
-                    <button class="btn-option" onclick="showStep(6)">Foco apenas no meu trabalho atual</button>
-                    <button class="btn-option" onclick="showStep(6)">Busco promoções e aumentos no trabalho</button>
-                    <button class="btn-option" onclick="showStep(6)">Desenvolvo habilidades para ganhar mais</button>
-                    <button class="btn-option" onclick="showStep(6)">Crio múltiplas fontes de renda passiva</button>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 6 -->
-            <div class="step" id="step6">
-                <div class="question">
-                    <h3>6. Qual sua mentalidade sobre educação financeira?</h3>
-                    <button class="btn-option" onclick="showStep(7)">Não me interesso muito pelo assunto</button>
-                    <button class="btn-option" onclick="showStep(7)">Aprendo apenas quando surge uma necessidade</button>
-                    <button class="btn-option" onclick="showStep(7)">Busco conhecimento financeiro regularmente</button>
-                    <button class="btn-option" onclick="showStep(7)">Invisto tempo e recursos em educação financeira</button>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 7 -->
-            <div class="step" id="step7">
-                <div class="question">
-                    <h3>7. Como você reage a fracassos financeiros?</h3>
-                    <button class="btn-option" onclick="showStep(8)">Desisto facilmente após um fracasso</button>
-                    <button class="btn-option" onclick="showStep(8)">Fico desmotivado, mas eventualmente recomeço</button>
-                    <button class="btn-option" onclick="showStep(8)">Vejo como aprendizado e ajusto minha estratégia</button>
-                    <button class="btn-option" onclick="showStep(8)">Persisto até encontrar a solução certa</button>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 8 -->
-            <div class="step" id="step8">
-                <div class="question">
-                    <h3>8. Qual sua relação com o tempo e dinheiro?</h3>
-                    <button class="btn-option" onclick="showStep(9)">Trabalho por dinheiro, troco tempo por dinheiro</button>
-                    <button class="btn-option" onclick="showStep(9)">Busco eficiência para ganhar mais no mesmo tempo</button>
-                    <button class="btn-option" onclick="showStep(9)">Crio sistemas que geram dinheiro sem meu tempo</button>
-                    <button class="btn-option" onclick="showStep(9)">Invisto para que o dinheiro trabalhe por mim</button>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 9 -->
-            <div class="step" id="step9">
-                <div class="question">
-                    <h3>9. Como você toma decisões financeiras importantes?</h3>
-                    <button class="btn-option" onclick="showStep(10)">Sigo minha intuição e emoções</button>
-                    <button class="btn-option" onclick="showStep(10)">Pesquiso bastante antes de decidir</button>
-                    <button class="btn-option" onclick="showStep(10)">Analiso dados e procuro especialistas</button>
-                    <button class="btn-option" onclick="showStep(10)">Crio um processo sistemático de decisão</button>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 10 -->
-            <div class="step" id="step10">
-                <div class="question">
-                    <h3>10. O que significa sucesso financeiro para você?</h3>
-                    <button class="btn-option" onclick="showStep(11)">Ter dinheiro para pagar minhas contas</button>
-                    <button class="btn-option" onclick="showStep(11)">Viver uma vida confortável sem preocupações</button>
-                    <button class="btn-option" onclick="showStep(11)">Ter liberdade para fazer minhas escolhas</button>
-                    <button class="btn-option" onclick="showStep(11)">Fazer diferença na vida de outras pessoas</button>
-                </div>
-            </div>
-
-            <!-- TELA DE PAGAMENTO -->
+            <!-- TELA DE PAGAMENTO REAL -->
             <div class="step" id="step11">
-                <div style="text-align: center;">
-                    <h2>🎉 Teste Concluído!</h2>
-                    <p>Seu relatório de inteligência financeira está pronto!</p>
+                <div class="result">
+                    <h2 style="color: #ffffff; font-size: 2.5rem; margin-bottom: 30px;">
+                        🎉 TESTE CONCLUÍDO COM SUCESSO!
+                    </h2>
+                    <p style="font-size: 1.3rem; color: rgba(255,255,255,0.8); margin: 25px 0;">
+                        Seu relatório de inteligência milionária está pronto!
+                    </p>
                     
                     <div class="payment-section">
-                        <h3>Acesse Seu Relatório Completo</h3>
-                        <p class="price">R$ 4,99</p>
-                        <p>✅ Análise detalhada de 10 dimensões<br>
-                           ✅ Estratégias personalizadas<br>
-                           ✅ Plano de ação específico</p>
-                        
-                        <button class="btn" onclick="processPayment()" style="background: #dc3545;">
-                            PAGAR AGORA - R$ 4,99
-                        </button>
-                        
-                        <div style="margin-top: 15px; color: #666;">
-                            💳 Pagamento seguro via Mercado Pago
+                        <div style="position: relative; z-index: 10;">
+                            <h3 style="font-size: 1.8rem; margin-bottom: 20px;">🔓 ACESSE SEU RELATÓRIO ELITE</h3>
+                            <p class="price">R$ 4,99</p>
+                            
+                            <div class="benefits-grid">
+                                <div class="benefit-card" style="background: rgba(255,255,255,0.15);">
+                                    <div class="benefit-icon">📈</div>
+                                    <h4>Análise Avançada</h4>
+                                    <p>10 dimensões da mente milionária</p>
+                                </div>
+                                <div class="benefit-card" style="background: rgba(255,255,255,0.15);">
+                                    <div class="benefit-icon">🎯</div>
+                                    <h4>Estratégias Elite</h4>
+                                    <p>Plano exclusivo para alto desempenho</p>
+                                </div>
+                                <div class="benefit-card" style="background: rgba(255,255,255,0.15);">
+                                    <div class="benefit-icon">💼</div>
+                                    <h4>Mentoria Inclusa</h4>
+                                    <p>Orientação de especialistas em riqueza</p>
+                                </div>
+                            </div>
+                            
+                            <div id="checkout-container">
+                                <!-- Botão do Mercado Pago será injetado aqui -->
+                            </div>
+                            
+                            <div class="loading" id="loading" style="display: none;">
+                                <div class="spinner"></div>
+                                <p>Carregando checkout seguro...</p>
+                            </div>
+                            
+                            <div class="payment-methods">
+                                <div class="payment-method">💳 Cartão</div>
+                                <div class="payment-method">📱 Pix</div>
+                                <div class="payment-method">🔗 Boleto</div>
+                            </div>
+                            
+                            <div class="security-badge" style="background: rgba(255,255,255,0.15); color: white; border-color: rgba(255,255,255,0.3);">
+                                🛡️ Pagamento 100% Seguro • Mercado Pago
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -286,75 +545,41 @@
 
             <!-- TELA DE RESULTADO -->
             <div class="step" id="step12">
-                <div style="text-align: center;">
-                    <h2>📊 Seu QI Financeiro</h2>
-                    <div style="font-size: 4rem; font-weight: bold; color: #28a745; margin: 20px 0;">
-                        87%
-                    </div>
-                    <h3 style="color: #28a745; margin-bottom: 30px;">Alto Potencial de Riqueza</h3>
+                <div class="result">
+                    <h2 style="color: #ffffff; font-size: 2.2rem; margin-bottom: 20px;">
+                        📊 SEU QI FINANCEIRO ELITE
+                    </h2>
+                    <div class="result-score">87%</div>
+                    <h3 style="color: #2ecc71; font-size: 1.8rem; margin-bottom: 40px;">
+                        🎯 ALTO POTENCIAL MILIONÁRIO
+                    </h3>
                     
-                    <div style="text-align: left; margin-top: 30px;">
-                        <h4>✅ Suas Forças:</h4>
-                        <ul style="margin-left: 20px; margin-bottom: 20px;">
-                            <li>Mentalidade de crescimento financeiro</li>
-                            <li>Boa compreensão de riscos</li>
-                            <li>Capacidade de planejamento</li>
-                        </ul>
-                        
-                        <h4>💡 Áreas de Melhoria:</h4>
-                        <ul style="margin-left: 20px;">
-                            <li>Diversificação de investimentos</li>
-                            <li>Renda passiva</li>
-                            <li>Otimização fiscal</li>
-                        </ul>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon">✅</div>
+                            <h4>Forças de Elite</h4>
+                            <p>Mentalidade de crescimento<br>Visão estratégica<br>Gestão de riscos avançada</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">💡</div>
+                            <h4>Oportunidades de Ouro</h4>
+                            <p>Diversificação premium<br>Renda passiva escalável<br>Estratégias fiscais</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon">🚀</div>
+                            <h4>Próximos Níveis</h4>
+                            <p>Investimentos de alto retorno<br>Negócios escaláveis<br>Legado financeiro</p>
+                        </div>
                     </div>
                     
-                    <button class="btn" onclick="showStep(0)" style="margin-top: 30px;">
-                        Fazer Teste Novamente
+                    <button class="btn" onclick="showStep(0)" style="margin-top: 40px;">
+                        🔄 FAZER TESTE NOVAMENTE
                     </button>
                 </div>
             </div>
         </div>
         
         <footer>
-            <p>© 2024 Instituto de Inteligência Financeira Avançada • Desenvolvido por Especialistas</p>
-        </footer>
-    </div>
-
-    <script>
-        let currentStep = 0;
-        const totalSteps = 13;
-        
-        function updateProgress() {
-            const progress = document.getElementById('progress');
-            const percentage = (currentStep / (totalSteps - 1)) * 100;
-            progress.style.width = percentage + '%';
-        }
-        
-        function showStep(stepNumber) {
-            // Esconde todos os passos
-            var steps = document.querySelectorAll('.step');
-            for (var i = 0; i < steps.length; i++) {
-                steps[i].classList.remove('active');
-            }
-            
-            // Mostra o passo específico
-            document.getElementById('step' + stepNumber).classList.add('active');
-            currentStep = stepNumber;
-            updateProgress();
-        }
-        
-        function processPayment() {
-            alert("💰 Pagamento Real: Em produção, isso redirecionaria para o Mercado Pago real!\n\nValor: R$ 4,99\n\nPara testar agora, vamos simular o pagamento...");
-            
-            // Simular pagamento bem-sucedido
-            setTimeout(function() {
-                showStep(12);
-            }, 2000);
-        }
-        
-        // Inicializar
-        updateProgress();
-    </script>
-</body>
-</html>
+            <p style="font-size: 0.9rem; opacity: 0.7;">
+                © 2024 Instituto de Inteligência Financeira Elite • Desenvolvido por Especialistas em Riqueza
+       
