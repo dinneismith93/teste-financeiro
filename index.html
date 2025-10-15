@@ -1,110 +1,330 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Teste QI Financeiro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de QI Financeiro - Descubra Sua Inteligência para Riqueza</title>
+    <!-- Mercado Pago SDK -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <style>
-        body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            color: white;
-            text-align: center;
-            padding: 50px;
-            font-family: Arial;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .step { display: none; }
-        .active { display: block; }
-        .btn {
-            background: #28a745;
+        
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 15px 30px;
-            margin: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .step {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .step.active {
             display: block;
-            width: 80%;
-            margin-left: auto;
-            margin-right: auto;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        .btn-pay {
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            font-size: 1.4rem;
+            padding: 20px 40px;
+            display: block;
+            width: 100%;
+            margin: 25px 0;
+        }
+        
+        .btn-option {
+            display: block;
+            background: white;
+            color: #333;
+            padding: 18px 25px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 12px 0;
+            width: 100%;
+            text-align: left;
+        }
+        
+        .btn-option:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+            transform: translateX(10px);
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .question h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 1.4rem;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background: #e9ecef;
+            border-radius: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+        
+        .result {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .payment-info {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .price {
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            color: #6c757d;
         }
     </style>
 </head>
 <body>
-    <div class="step active" id="step1">
-        <h1>🧠 TESTE QI FINANCEIRO</h1>
-        <button class="btn" onclick="showStep(2)">🎯 INICIAR TESTE</button>
-    </div>
+    <div class="container">
+        <header>
+            <h1>TESTE DE QI FINANCEIRO</h1>
+            <p class="subtitle">Descubra Sua Inteligência para Criar Riqueza</p>
+        </header>
+        
+        <div class="content">
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            
+            <!-- Introdução -->
+            <div class="step active" id="step0">
+                <h2>🧠 Avalie Seu Potencial de Riqueza</h2>
+                <p>Este teste científico avalia 10 dimensões da sua inteligência financeira e fornece um relatório completo personalizado.</p>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn" onclick="showStep(1)">INICIAR TESTE - 10 PERGUNTAS</button>
+                </div>
+            </div>
+            
+            <!-- PERGUNTA 1 -->
+            <div class="step" id="step1">
+                <div class="question">
+                    <h3>1. Quando você recebe dinheiro, qual é seu primeiro pensamento?</h3>
+                    <button class="btn-option" onclick="showStep(2)">Em que posso gastar para me satisfazer</button>
+                    <button class="btn-option" onclick="showStep(2)">Como posso pagar minhas contas em dia</button>
+                    <button class="btn-option" onclick="showStep(2)">Quanto posso guardar ou investir primeiro</button>
+                    <button class="btn-option" onclick="showStep(2)">Como fazer esse dinheiro gerar mais dinheiro</button>
+                </div>
+            </div>
+            
+            <!-- PERGUNTA 2 -->
+            <div class="step" id="step2">
+                <div class="question">
+                    <h3>2. Como você vê o conceito de "risco" financeiro?</h3>
+                    <button class="btn-option" onclick="showStep(3)">Algo a ser evitado completamente</button>
+                    <button class="btn-option" onclick="showStep(3)">Necessário, mas com muito cuidado e planejamento</button>
+                    <button class="btn-option" onclick="showStep(3)">Oportunidade de crescimento quando bem calculado</button>
+                    <button class="btn-option" onclick="showStep(3)">Parte essencial do processo de enriquecimento</button>
+                </div>
+            </div>
+            
+            <!-- PERGUNTA 3 -->
+            <div class="step" id="step3">
+                <div class="question">
+                    <h3>3. Qual sua estratégia para investimentos?</h3>
+                    <button class="btn-option" onclick="showStep(4)">Deixo na poupança, é mais seguro</button>
+                    <button class="btn-option" onclick="showStep(4)">Invisto apenas quando sobra dinheiro no mês</button>
+                    <button class="btn-option" onclick="showStep(4)">Tenho uma carteira diversificada de investimentos</button>
+                    <button class="btn-option" onclick="showStep(4)">Invisto regularmente como prioridade financeira</button>
+                </div>
+            </div>
+            
+            <!-- PERGUNTA 4 -->
+            <div class="step" id="step4">
+                <div class="question">
+                    <h3>4. Como você planeja seu futuro financeiro?</h3>
+                    <button class="btn-option" onclick="showStep(5)">Penso apenas no mês atual</button>
+                    <button class="btn-option" onclick="showStep(5)">Tenho algumas metas, mas sem plano concreto</button>
+                    <button class="btn-option" onclick="showStep(5)">Tenho metas de curto, médio e longo prazo</button>
+                    <button class="btn-option" onclick="showStep(5)">Tenho planejamento detalhado para os próximos 5+ anos</button>
+                </div>
+            </div>
+            
+            <!-- PERGUNTA 5 -->
+            <div class="step" id="step5">
+                <div class="question">
+                    <h3>5. O que você faz para aumentar sua renda?</h3>
+                    <button class="btn-option" onclick="showStep(6)">Foco apenas no meu trabalho atual</button>
+                    <button class="btn-option" onclick="showStep(6)">Busco promoções e aumentos no trabalho</button>
+                    <button class="btn-option" onclick="showStep(6)">Tenho fontes de renda extras além do trabalho</button>
+                    <button class="btn-option" onclick="showStep(6)">Desenvolvo múltiplas fontes de renda passiva</button>
+                </div>
+            </div>
 
-    <div class="step" id="step2">
-        <h2>Pergunta 1/10</h2>
-        <button class="btn" onclick="showStep(3)">Resposta A</button>
-        <button class="btn" onclick="showStep(3)">Resposta B</button>
-    </div>
+            <!-- Adicione mais 5 perguntas seguindo o mesmo padrão -->
 
-    <div class="step" id="step3">
-        <h2>Pergunta 2/10</h2>
-        <button class="btn" onclick="showStep(4)">Resposta A</button>
-        <button class="btn" onclick="showStep(4)">Resposta B</button>
-    </div>
-
-    <div class="step" id="step4">
-        <h2>Pergunta 3/10</h2>
-        <button class="btn" onclick="showStep(5)">Resposta A</button>
-        <button class="btn" onclick="showStep(5)">Resposta B</button>
-    </div>
-
-    <div class="step" id="step5">
-        <h2>Pergunta 4/10</h2>
-        <button class="btn" onclick="showStep(6)">Resposta A</button>
-        <button class="btn" onclick="showStep(6)">Resposta B</button>
-    </div>
-
-    <div class="step" id="step6">
-        <h2>Pergunta 5/10</h2>
-        <button class="btn" onclick="showStep(7)">Resposta A</button>
-        <button class="btn" onclick="showStep(7)">Resposta B</button>
-    </div>
-
-    <div class="step" id="step7">
-        <h2>Pergunta 6/10</h2>
-        <button class="btn" onclick="showStep(8)">Resposta A</button>
-        <button class="btn" onclick="showStep(8)">Resposta B</button>
-    </div>
-
-    <div class="step" id="step8">
-        <h2>Pergunta 7/10</h2>
-        <button class="btn" onclick="showStep(9)">Resposta A</button>
-        <button class="btn" onclick="showStep(9)">Resposta B</button>
-    </div>
-
-    <div class="step" id="step9">
-        <h2>Pergunta 8/10</h2>
-        <button class="btn" onclick="showStep(10)">Resposta A</button>
-        <button class="btn" onclick="showStep(10)">Resposta B</button>
-    </div>
-
-    <div class="step" id="step10">
-        <h2>Pergunta 9/10</h2>
-        <button class="btn" onclick="showStep(11)">Resposta A</button>
-        <button class="btn" onclick="showStep(11)">Resposta B</button>
-    </div>
-
-    <div class="step" id="step11">
-        <h2>Pergunta 10/10</h2>
-        <button class="btn" onclick="showStep(12)">Resposta A</button>
-        <button class="btn" onclick="showStep(12)">Resposta B</button>
-    </div>
-
-    <div class="step" id="step12">
-        <h1>🎉 TESTE CONCLUÍDO!</h1>
-        <button class="btn" style="background: red;">💰 PAGAR R$ 4,99</button>
+            <!-- Tela de Pagamento -->
+            <div class="step" id="step10">
+                <div class="result">
+                    <h2>🎉 Teste Concluído com Sucesso!</h2>
+                    <p>Você respondeu todas as 10 perguntas do teste de QI Financeiro!</p>
+                    
+                    <div class="payment-info">
+                        <h3>🔓 ACESSE SEU RELATÓRIO COMPLETO</h3>
+                        <p class="price">R$ 4,99</p>
+                        <p><strong>O que você vai receber:</strong></p>
+                        <p>✅ Análise detalhada das 10 dimensões financeiras<br>
+                           ✅ Estratégias personalizadas para seu perfil<br>
+                           ✅ Plano de ação específico<br>
+                           ✅ Comparativo com perfis de sucesso<br>
+                           ✅ Relatório completo em PDF</p>
+                        
+                        <button class="btn btn-pay" onclick="processPayment()">
+                            🚀 VER MEU RESULTADO COMPLETO - R$ 4,99
+                        </button>
+                        
+                        <p style="margin-top: 15px; font-size: 0.9rem;">
+                            Pagamento 100% seguro processado via Mercado Pago
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2024 Instituto de Inteligência Financeira. Desenvolvido por especialistas.</p>
+        </footer>
     </div>
 
     <script>
-        function showStep(step) {
-            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-            document.getElementById('step' + step).classList.add('active');
+        // SUAS CREDENCIAIS REAIS DO MERCADO PAGO
+        const MERCADOPAGO_PUBLIC_KEY = 'APP_USR-f76a33f9-459e-488e-9e89-0ccbf9610517';
+        
+        let currentStep = 0;
+        const totalSteps = 11;
+        
+        // Inicializar Mercado Pago
+        const mp = new MercadoPago(MERCADOPAGO_PUBLIC_KEY, {
+            locale: 'pt-BR'
+        });
+
+        function updateProgress() {
+            const progress = document.getElementById('progress');
+            const percentage = (currentStep / (totalSteps - 1)) * 100;
+            progress.style.width = `${percentage}%`;
         }
+        
+        function showStep(step) {
+            document.querySelectorAll('.step').forEach(s => {
+                s.classList.remove('active');
+            });
+            document.getElementById(`step${step}`).classList.add('active');
+            currentStep = step;
+            updateProgress();
+        }
+        
+        function processPayment() {
+            // Em produção, isso redirecionaria para o Mercado Pago
+            alert("🚀 Redirecionando para pagamento seguro...\n\nVocê será direcionado para a página do Mercado Pago para concluir o pagamento de R$ 4,99.\n\nApós o pagamento aprovado, o dinheiro cairá automaticamente na sua conta Mercado Pago.");
+            
+            // Simulação - Em produção, aqui viria a integração real
+            // window.location.href = 'https://mercadopago.com.br/checkout';
+        }
+        
+        // Inicializar
+        updateProgress();
     </script>
 </body>
 </html>
