@@ -3,184 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste de QI Financeiro - Descubra Sua Inteligência para Riqueza</title>
+    <title>Teste de QI Financeiro</title>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); color: #333; min-height: 100vh; padding: 20px; }
-        .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); overflow: hidden; }
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 20px; text-align: center; }
-        h1 { font-size: 2.8rem; margin-bottom: 10px; }
-        .content { padding: 40px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #1a2a6c; color: #333; min-height: 100vh; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 15px; overflow: hidden; }
+        header { background: #2c3e50; color: white; padding: 30px 20px; text-align: center; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .content { padding: 30px; }
         .step { display: none; }
         .step.active { display: block; }
-        .btn { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 18px 35px; border: none; border-radius: 50px; cursor: pointer; font-size: 1.3rem; margin: 20px auto; display: block; width: 300px; }
-        .btn-option { display: block; background: white; color: #333; padding: 15px 20px; border: 2px solid #e0e0e0; border-radius: 10px; cursor: pointer; margin: 10px 0; width: 100%; text-align: left; }
-        .btn-option:hover { border-color: #667eea; background: #f8f9ff; }
-        .question { margin: 20px 0; padding: 20px; background: white; border-radius: 15px; border-left: 5px solid #667eea; }
-        .progress-bar { height: 12px; background: #e9ecef; border-radius: 10px; margin: 30px 0; overflow: hidden; }
-        .progress { height: 100%; background: linear-gradient(135deg, #00b09b, #96c93d); width: 0%; transition: width 0.5s ease; border-radius: 10px; }
-        .result, .payment-info { text-align: center; padding: 30px; }
-        .payment-info { background: linear-gradient(135deg, #f093fb, #f5576c); border-radius: 20px; margin: 30px 0; color: white; }
-        .price { font-size: 3rem; color: white; font-weight: bold; margin: 15px 0; }
-        footer { text-align: center; padding: 30px; background: #f8f9fa; color: #6c757d; }
+        .btn { background: #28a745; color: white; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; margin: 10px; display: block; width: 200px; }
+        .btn-option { display: block; background: white; color: #333; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; cursor: pointer; margin: 8px 0; width: 100%; text-align: left; }
+        .question { margin: 15px 0; padding: 15px; border: 1px solid #eee; border-radius: 8px; }
+        .progress-bar { height: 8px; background: #e9ecef; border-radius: 4px; margin: 20px 0; overflow: hidden; }
+        .progress { height: 100%; background: #28a745; width: 0%; transition: width 0.5s; }
+        .result, .payment-info { text-align: center; padding: 20px; }
+        .payment-info { background: #f8f9fa; border-radius: 10px; margin: 20px 0; }
+        .price { font-size: 2rem; color: #dc3545; font-weight: bold; }
+        footer { text-align: center; padding: 20px; background: #f8f9fa; color: #666; }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>TESTE DE QI FINANCEIRO</h1>
-            <p>Descubra Sua Inteligência para Criar Riqueza</p>
+            <h1>TESTE FINANCEIRO</h1>
+            <p>Descubra seu potencial</p>
         </header>
         
         <div class="content">
             <div class="progress-bar"><div class="progress" id="progress"></div></div>
             
-            <!-- TELA INICIAL -->
             <div class="step active" id="step0">
-                <h2>🧠 Avalie Seu Potencial de Riqueza</h2>
-                <p>Teste completo com 10 perguntas sobre inteligência financeira.</p>
-                <button class="btn" onclick="showStep(1)">INICIAR TESTE - 10 PERGUNTAS</button>
+                <h2>Bem-vindo ao Teste</h2>
+                <p>10 perguntas sobre finanças</p>
+                <button class="btn" onclick="showStep(1)">INICIAR TESTE</button>
             </div>
             
-            <!-- PERGUNTA 1 -->
             <div class="step" id="step1">
                 <div class="question">
-                    <h3>1. Quando você recebe dinheiro, qual é seu primeiro pensamento?</h3>
-                    <button class="btn-option" onclick="showStep(2)">Em que posso gastar</button>
-                    <button class="btn-option" onclick="showStep(2)">Como pagar minhas contas</button>
-                    <button class="btn-option" onclick="showStep(2)">Quanto posso investir</button>
-                    <button class="btn-option" onclick="showStep(2)">Como gerar mais dinheiro</button>
+                    <h3>1. Seu primeiro pensamento ao receber dinheiro?</h3>
+                    <button class="btn-option" onclick="showStep(2)">Em que gastar</button>
+                    <button class="btn-option" onclick="showStep(2)">Pagar contas</button>
+                    <button class="btn-option" onclick="showStep(2)">Guardar/investir</button>
+                    <button class="btn-option" onclick="showStep(2)">Fazer gerar mais</button>
                 </div>
             </div>
             
-            <!-- PERGUNTA 2 -->
             <div class="step" id="step2">
                 <div class="question">
-                    <h3>2. Como você vê o conceito de "risco" financeiro?</h3>
-                    <button class="btn-option" onclick="showStep(3)">Algo a ser evitado</button>
-                    <button class="btn-option" onclick="showStep(3)">Necessário com cuidado</button>
-                    <button class="btn-option" onclick="showStep(3)">Oportunidade calculada</button>
-                    <button class="btn-option" onclick="showStep(3)">Essencial para enriquecer</button>
+                    <h3>2. Como vê o risco financeiro?</h3>
+                    <button class="btn-option" onclick="showStep(3)">Evitar sempre</button>
+                    <button class="btn-option" onclick="showStep(3)">Cuidadoso</button>
+                    <button class="btn-option" onclick="showStep(3)">Calculado</button>
+                    <button class="btn-option" onclick="showStep(3)">Essencial</button>
                 </div>
             </div>
             
-            <!-- PERGUNTA 3 -->
             <div class="step" id="step3">
                 <div class="question">
-                    <h3>3. Qual sua estratégia para investimentos?</h3>
+                    <h3>3. Estratégia de investimentos?</h3>
                     <button class="btn-option" onclick="showStep(4)">Só poupança</button>
-                    <button class="btn-option" onclick="showStep(4)">Invisto quando sobra</button>
-                    <button class="btn-option" onclick="showStep(4)">Carteira diversificada</button>
-                    <button class="btn-option" onclick="showStep(4)">Invisto como prioridade</button>
+                    <button class="btn-option" onclick="showStep(4)">Quando sobra</button>
+                    <button class="btn-option" onclick="showStep(4)">Diversificado</button>
+                    <button class="btn-option" onclick="showStep(4)">Prioridade</button>
                 </div>
             </div>
             
-            <!-- PERGUNTA 4 -->
             <div class="step" id="step4">
                 <div class="question">
-                    <h3>4. Como você planeja seu futuro financeiro?</h3>
-                    <button class="btn-option" onclick="showStep(5)">Penso só no mês atual</button>
+                    <h3>4. Planejamento futuro?</h3>
+                    <button class="btn-option" onclick="showStep(5)">Mês atual</button>
                     <button class="btn-option" onclick="showStep(5)">Metas sem plano</button>
-                    <button class="btn-option" onclick="showStep(5)">Metas de curto/longo prazo</button>
-                    <button class="btn-option" onclick="showStep(5)">Planejamento detalhado 5+ anos</button>
+                    <button class="btn-option" onclick="showStep(5)">Curto/longo prazo</button>
+                    <button class="btn-option" onclick="showStep(5)">Detalhado 5+ anos</button>
                 </div>
             </div>
             
-            <!-- PERGUNTA 5 -->
             <div class="step" id="step5">
                 <div class="question">
-                    <h3>5. O que você faz para aumentar sua renda?</h3>
-                    <button class="btn-option" onclick="showStep(6)">Só trabalho atual</button>
-                    <button class="btn-option" onclick="showStep(6)">Busco promoções</button>
-                    <button class="btn-option" onclick="showStep(6)">Fontes de renda extras</button>
-                    <button class="btn-option" onclick="showStep(6)">Múltiplas fontes passivas</button>
+                    <h3>5. Aumentar renda?</h3>
+                    <button class="btn-option" onclick="showStep(6)">Só trabalho</button>
+                    <button class="btn-option" onclick="showStep(6)">Promoções</button>
+                    <button class="btn-option" onclick="showStep(6)">Renda extra</button>
+                    <button class="btn-option" onclick="showStep(6)">Renda passiva</button>
                 </div>
             </div>
 
-            <!-- PERGUNTA 6 -->
             <div class="step" id="step6">
                 <div class="question">
-                    <h3>6. Como você lida com dívidas?</h3>
-                    <button class="btn-option" onclick="showStep(7)">Evito qualquer dívida</button>
-                    <button class="btn-option" onclick="showStep(7)">Crédito só emergências</button>
-                    <button class="btn-option" onclick="showStep(7)">Uso crédito estrategicamente</button>
-                    <button class="btn-option" onclick="showStep(7)">Uso alavancagem financeira</button>
+                    <h3>6. Lidar com dívidas?</h3>
+                    <button class="btn-option" onclick="showStep(7)">Evito tudo</button>
+                    <button class="btn-option" onclick="showStep(7)">Só emergências</button>
+                    <button class="btn-option" onclick="showStep(7)">Estratégico</button>
+                    <button class="btn-option" onclick="showStep(7)">Alavancagem</button>
                 </div>
             </div>
 
-            <!-- PERGUNTA 7 -->
             <div class="step" id="step7">
                 <div class="question">
-                    <h3>7. Qual sua mentalidade sobre educação financeira?</h3>
+                    <h3>7. Educação financeira?</h3>
                     <button class="btn-option" onclick="showStep(8)">Não me interesso</button>
-                    <button class="btn-option" onclick="showStep(8)">Aprendo quando preciso</button>
-                    <button class="btn-option" onclick="showStep(8)">Busco conhecimento sempre</button>
-                    <button class="btn-option" onclick="showStep(8)">Invisto em educação financeira</button>
+                    <button class="btn-option" onclick="showStep(8)">Quando preciso</button>
+                    <button class="btn-option" onclick="showStep(8)">Busco sempre</button>
+                    <button class="btn-option" onclick="showStep(8)">Invisto nisso</button>
                 </div>
             </div>
 
-            <!-- PERGUNTA 8 -->
             <div class="step" id="step8">
                 <div class="question">
-                    <h3>8. Como você reage a oportunidades?</h3>
-                    <button class="btn-option" onclick="showStep(9)">Fico na zona de conforto</button>
-                    <button class="btn-option" onclick="showStep(9)">Analiso com cuidado</button>
-                    <button class="btn-option" onclick="showStep(9)">Fico animado e avalio</button>
-                    <button class="btn-option" onclick="showStep(9)">Vejo como chance de crescimento</button>
+                    <h3>8. Reação a oportunidades?</h3>
+                    <button class="btn-option" onclick="showStep(9)">Zona conforto</button>
+                    <button class="btn-option" onclick="showStep(9)">Analiso cuidado</button>
+                    <button class="btn-option" onclick="showStep(9)">Avalio rápido</button>
+                    <button class="btn-option" onclick="showStep(9)">Chance crescimento</button>
                 </div>
             </div>
 
-            <!-- PERGUNTA 9 -->
             <div class="step" id="step9">
                 <div class="question">
-                    <h3>9. Qual sua relação com o fracasso?</h3>
-                    <button class="btn-option" onclick="showStep(10)">Tenho medo de falhar</button>
-                    <button class="btn-option" onclick="showStep(10)">Vejo como algo negativo</button>
-                    <button class="btn-option" onclick="showStep(10)">Parte do aprendizado</button>
-                    <button class="btn-option" onclick="showStep(10)">Oportunidade para recomeçar</button>
+                    <h3>9. Relação com fracasso?</h3>
+                    <button class="btn-option" onclick="showStep(10)">Medo de falhar</button>
+                    <button class="btn-option" onclick="showStep(10)">Algo negativo</button>
+                    <button class="btn-option" onclick="showStep(10)">Parte aprendizado</button>
+                    <button class="btn-option" onclick="showStep(10)">Recomeçar forte</button>
                 </div>
             </div>
 
-            <!-- PERGUNTA 10 -->
             <div class="step" id="step10">
                 <div class="question">
-                    <h3>10. Como você define sucesso financeiro?</h3>
-                    <button class="btn-option" onclick="showStep(11)">Pagar contas em dia</button>
+                    <h3>10. Sucesso financeiro é?</h3>
+                    <button class="btn-option" onclick="showStep(11)">Pagar contas</button>
                     <button class="btn-option" onclick="showStep(11)">Vida confortável</button>
-                    <button class="btn-option" onclick="showStep(11)">Liberdade de escolhas</button>
-                    <button class="btn-option" onclick="showStep(11)">Impacto positivo na sociedade</button>
+                    <button class="btn-option" onclick="showStep(11)">Liberdade escolhas</button>
+                    <button class="btn-option" onclick="showStep(11)">Impacto social</button>
                 </div>
             </div>
 
-            <!-- TELA DE PAGAMENTO -->
             <div class="step" id="step11">
                 <div class="result">
-                    <h2>🎉 Teste Concluído!</h2>
-                    <p>Você respondeu todas as 10 perguntas!</p>
-                    
+                    <h2>Teste Concluído!</h2>
                     <div class="payment-info">
-                        <h3>🔓 ACESSE SEU RELATÓRIO COMPLETO</h3>
+                        <h3>Acesse Seu Resultado</h3>
                         <p class="price">R$ 4,99</p>
-                        <p>✅ Análise detalhada<br>✅ Estratégias personalizadas<br>✅ Plano de ação</p>
-                        <button class="btn" onclick="processPayment()">VER RESULTADO - R$ 4,99</button>
-                        <p>Pagamento seguro via Mercado Pago</p>
+                        <button class="btn" onclick="processPayment()">VER RESULTADO</button>
                     </div>
                 </div>
             </div>
         </div>
         
         <footer>
-            <p>© 2024 Instituto de Inteligência Financeira</p>
+            <p>© 2024 Teste Financeiro</p>
         </footer>
     </div>
 
     <script>
-        const MERCADOPAGO_PUBLIC_KEY = 'APP_USR-f76a33f9-459e-488e-9e89-0ccbf9610517';
         let currentStep = 0;
         const totalSteps = 12;
-        
-        const mp = new MercadoPago(MERCADOPAGO_PUBLIC_KEY, { locale: 'pt-BR' });
 
         function updateProgress() {
             const progress = document.getElementById('progress');
@@ -196,10 +176,10 @@
         }
         
         function processPayment() {
-            alert("💰 Pagamento de R$ 4,99\n\nEm produção: Integração real com Mercado Pago\nDinheiro cairia direto na sua conta!");
+            alert("Pagamento de R$ 4,99 - Integração Mercado Pago");
         }
         
         updateProgress();
     </script>
 </body>
-</html>
+                        </html>
