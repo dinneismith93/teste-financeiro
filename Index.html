@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Teste QI Financeiro</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            font-family: Arial;
+        }
+        .step { display: none; }
+        .active { display: block; }
+        .btn {
+            background: #28a745;
+            color: white;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            display: block;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="step active" id="step1">
+        <h1>🧠 TESTE QI FINANCEIRO</h1>
+        <button class="btn" onclick="showStep(2)">🎯 INICIAR TESTE</button>
+    </div>
+
+    <div class="step" id="step2">
+        <h2>Pergunta 1/10</h2>
+        <button class="btn" onclick="showStep(3)">Resposta A</button>
+        <button class="btn" onclick="showStep(3)">Resposta B</button>
+    </div>
+
+    <div class="step" id="step3">
+        <h2>Pergunta 2/10</h2>
+        <button class="btn" onclick="showStep(4)">Resposta A</button>
+        <button class="btn" onclick="showStep(4)">Resposta B</button>
+    </div>
+
+    <div class="step" id="step4">
+        <h2>Pergunta 3/10</h2>
+        <button class="btn" onclick="showStep(5)">Resposta A</button>
+        <button class="btn" onclick="showStep(5)">Resposta B</button>
+    </div>
+
+    <div class="step" id="step5">
+        <h2>Pergunta 4/10</h2>
+        <button class="btn" onclick="showStep(6)">Resposta A</button>
+        <button class="btn" onclick="showStep(6)">Resposta B</button>
+    </div>
+
+    <div class="step" id="step6">
+        <h2>Pergunta 5/10</h2>
+        <button class="btn" onclick="showStep(7)">Resposta A</button>
+        <button class="btn" onclick="showStep(7)">Resposta B</button>
+    </div>
+
+    <div class="step" id="step7">
+        <h2>Pergunta 6/10</h2>
+        <button class="btn" onclick="showStep(8)">Resposta A</button>
+        <button class="btn" onclick="showStep(8)">Resposta B</button>
+    </div>
+
+    <div class="step" id="step8">
+        <h2>Pergunta 7/10</h2>
+        <button class="btn" onclick="showStep(9)">Resposta A</button>
+        <button class="btn" onclick="showStep(9)">Resposta B</button>
+    </div>
+
+    <div class="step" id="step9">
+        <h2>Pergunta 8/10</h2>
+        <button class="btn" onclick="showStep(10)">Resposta A</button>
+        <button class="btn" onclick="showStep(10)">Resposta B</button>
+    </div>
+
+    <div class="step" id="step10">
+        <h2>Pergunta 9/10</h2>
+        <button class="btn" onclick="showStep(11)">Resposta A</button>
+        <button class="btn" onclick="showStep(11)">Resposta B</button>
+    </div>
+
+    <div class="step" id="step11">
+        <h2>Pergunta 10/10</h2>
+        <button class="btn" onclick="showStep(12)">Resposta A</button>
+        <button class="btn" onclick="showStep(12)">Resposta B</button>
+    </div>
+
+    <div class="step" id="step12">
+        <h1>🎉 TESTE CONCLUÍDO!</h1>
+        <button class="btn" style="background: red;">💰 PAGAR R$ 4,99</button>
+    </div>
+
+    <script>
+        function showStep(step) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
+        }
+    </script>
+</body>
+</html>
