@@ -253,10 +253,63 @@
                 </div>
             </div>
 
-            <!-- Adicione mais 5 perguntas seguindo o mesmo padrão -->
+            <!-- PERGUNTA 6 -->
+            <div class="step" id="step6">
+                <div class="question">
+                    <h3>6. Como você lida com dívidas e financiamentos?</h3>
+                    <button class="btn-option" onclick="showStep(7)">Evito qualquer tipo de dívida a qualquer custo</button>
+                    <button class="btn-option" onclick="showStep(7)">Uso crédito apenas para necessidades básicas</button>
+                    <button class="btn-option" onclick="showStep(7)">Uso crédito de forma estratégica quando vantajoso</button>
+                    <button class="btn-option" onclick="showStep(7)">Uso alavancagem financeira para multiplicar investimentos</button>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 7 -->
+            <div class="step" id="step7">
+                <div class="question">
+                    <h3>7. Qual sua mentalidade sobre educação financeira?</h3>
+                    <button class="btn-option" onclick="showStep(8)">Não me interesso muito pelo assunto</button>
+                    <button class="btn-option" onclick="showStep(8)">Aprendo apenas quando surge uma necessidade</button>
+                    <button class="btn-option" onclick="showStep(8)">Busco conhecimento financeiro regularmente</button>
+                    <button class="btn-option" onclick="showStep(8)">Invisto tempo e recursos em minha educação financeira</button>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 8 -->
+            <div class="step" id="step8">
+                <div class="question">
+                    <h3>8. Como você reage a oportunidades inesperadas?</h3>
+                    <button class="btn-option" onclick="showStep(9)">Prefiro manter-me na minha zona de conforto</button>
+                    <button class="btn-option" onclick="showStep(9)">Analiso com cuidado antes de qualquer decisão</button>
+                    <button class="btn-option" onclick="showStep(9)">Fico animado e avalio rapidamente o potencial</button>
+                    <button class="btn-option" onclick="showStep(9)">Vejo cada oportunidade como chance de crescimento</button>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 9 -->
+            <div class="step" id="step9">
+                <div class="question">
+                    <h3>9. Qual sua relação com o fracasso financeiro?</h3>
+                    <button class="btn-option" onclick="showStep(10)">Tenho muito medo de falhar financeiramente</button>
+                    <button class="btn-option" onclick="showStep(10)">Vejo como algo negativo a ser evitado</button>
+                    <button class="btn-option" onclick="showStep(10)">Entendo como parte do processo de aprendizado</button>
+                    <button class="btn-option" onclick="showStep(10)">Vejo como oportunidade para recomeçar mais forte</button>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 10 -->
+            <div class="step" id="step10">
+                <div class="question">
+                    <h3>10. Como você define sucesso financeiro?</h3>
+                    <button class="btn-option" onclick="showStep(11)">Ter dinheiro suficiente para pagar minhas contas</button>
+                    <button class="btn-option" onclick="showStep(11)">Ter uma vida confortável sem preocupações</button>
+                    <button class="btn-option" onclick="showStep(11)">Ter liberdade para fazer minhas escolhas</button>
+                    <button class="btn-option" onclick="showStep(11)">Ter impacto positivo na vida de outras pessoas</button>
+                </div>
+            </div>
 
             <!-- Tela de Pagamento -->
-            <div class="step" id="step10">
+            <div class="step" id="step11">
                 <div class="result">
                     <h2>🎉 Teste Concluído com Sucesso!</h2>
                     <p>Você respondeu todas as 10 perguntas do teste de QI Financeiro!</p>
@@ -293,7 +346,7 @@
         const MERCADOPAGO_PUBLIC_KEY = 'APP_USR-f76a33f9-459e-488e-9e89-0ccbf9610517';
         
         let currentStep = 0;
-        const totalSteps = 11;
+        const totalSteps = 12; // Agora são 12 passos (0 a 11)
         
         // Inicializar Mercado Pago
         const mp = new MercadoPago(MERCADOPAGO_PUBLIC_KEY, {
