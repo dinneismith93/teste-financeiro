@@ -336,7 +336,7 @@
                 </div>
             </div>
             
-            <!-- PERGUNTAS 1 A 10 -->
+            <!-- PERGUNTA 1 -->
             <div class="step" id="step1">
                 <div class="question">
                     <h3>1. Quando você recebe dinheiro, qual é seu primeiro pensamento?</h3>
@@ -347,8 +347,105 @@
                 </div>
             </div>
             
-            <!-- Continue com as outras 9 perguntas... -->
+            <!-- PERGUNTA 2 -->
+            <div class="step" id="step2">
+                <div class="question">
+                    <h3>2. Como você vê oportunidades de investimento?</h3>
+                    <button class="btn-option" onclick="showStep(3)">Prefiro evitar riscos e manter o dinheiro seguro</button>
+                    <button class="btn-option" onclick="showStep(3)">Analiso cuidadosamente antes de qualquer decisão</button>
+                    <button class="btn-option" onclick="showStep(3)">Busco ativamente oportunidades com bom potencial</button>
+                    <button class="btn-option" onclick="showStep(3)">Crio minhas próprias oportunidades de investimento</button>
+                </div>
+            </div>
             
+            <!-- PERGUNTA 3 -->
+            <div class="step" id="step3">
+                <div class="question">
+                    <h3>3. Qual sua estratégia para o futuro financeiro?</h3>
+                    <button class="btn-option" onclick="showStep(4)">Vivo um dia de cada vez, sem planejamento</button>
+                    <button class="btn-option" onclick="showStep(4)">Tenho algumas metas, mas sem plano concreto</button>
+                    <button class="btn-option" onclick="showStep(4)">Planejo meus objetivos de curto e longo prazo</button>
+                    <button class="btn-option" onclick="showStep(4)">Tenho um plano detalhado para os próximos 10 anos</button>
+                </div>
+            </div>
+            
+            <!-- PERGUNTA 4 -->
+            <div class="step" id="step4">
+                <div class="question">
+                    <h3>4. Como você lida com dívidas?</h3>
+                    <button class="btn-option" onclick="showStep(5)">Evito qualquer tipo de dívida a qualquer custo</button>
+                    <button class="btn-option" onclick="showStep(5)">Uso crédito apenas para necessidades básicas</button>
+                    <button class="btn-option" onclick="showStep(5)">Uso dívidas de forma estratégica quando vantajoso</button>
+                    <button class="btn-option" onclick="showStep(5)">Uso alavancagem financeira para multiplicar ganhos</button>
+                </div>
+            </div>
+            
+            <!-- PERGUNTA 5 -->
+            <div class="step" id="step5">
+                <div class="question">
+                    <h3>5. O que você faz para aumentar sua renda?</h3>
+                    <button class="btn-option" onclick="showStep(6)">Foco apenas no meu trabalho atual</button>
+                    <button class="btn-option" onclick="showStep(6)">Busco promoções e aumentos no trabalho</button>
+                    <button class="btn-option" onclick="showStep(6)">Desenvolvo habilidades para ganhar mais</button>
+                    <button class="btn-option" onclick="showStep(6)">Crio múltiplas fontes de renda passiva</button>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 6 -->
+            <div class="step" id="step6">
+                <div class="question">
+                    <h3>6. Qual sua mentalidade sobre educação financeira?</h3>
+                    <button class="btn-option" onclick="showStep(7)">Não me interesso muito pelo assunto</button>
+                    <button class="btn-option" onclick="showStep(7)">Aprendo apenas quando surge uma necessidade</button>
+                    <button class="btn-option" onclick="showStep(7)">Busco conhecimento financeiro regularmente</button>
+                    <button class="btn-option" onclick="showStep(7)">Invisto tempo e recursos em educação financeira</button>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 7 -->
+            <div class="step" id="step7">
+                <div class="question">
+                    <h3>7. Como você reage a fracassos financeiros?</h3>
+                    <button class="btn-option" onclick="showStep(8)">Desisto facilmente após um fracasso</button>
+                    <button class="btn-option" onclick="showStep(8)">Fico desmotivado, mas eventualmente recomeço</button>
+                    <button class="btn-option" onclick="showStep(8)">Vejo como aprendizado e ajusto minha estratégia</button>
+                    <button class="btn-option" onclick="showStep(8)">Persisto até encontrar a solução certa</button>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 8 -->
+            <div class="step" id="step8">
+                <div class="question">
+                    <h3>8. Qual sua relação com o tempo e dinheiro?</h3>
+                    <button class="btn-option" onclick="showStep(9)">Trabalho por dinheiro, troco tempo por dinheiro</button>
+                    <button class="btn-option" onclick="showStep(9)">Busco eficiência para ganhar mais no mesmo tempo</button>
+                    <button class="btn-option" onclick="showStep(9)">Crio sistemas que geram dinheiro sem meu tempo</button>
+                    <button class="btn-option" onclick="showStep(9)">Invisto para que o dinheiro trabalhe por mim</button>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 9 -->
+            <div class="step" id="step9">
+                <div class="question">
+                    <h3>9. Como você toma decisões financeiras importantes?</h3>
+                    <button class="btn-option" onclick="showStep(10)">Sigo minha intuição e emoções</button>
+                    <button class="btn-option" onclick="showStep(10)">Pesquiso bastante antes de decidir</button>
+                    <button class="btn-option" onclick="showStep(10)">Analiso dados e procuro especialistas</button>
+                    <button class="btn-option" onclick="showStep(10)">Crio um processo sistemático de decisão</button>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 10 -->
+            <div class="step" id="step10">
+                <div class="question">
+                    <h3>10. O que significa sucesso financeiro para você?</h3>
+                    <button class="btn-option" onclick="showStep(11)">Ter dinheiro para pagar minhas contas</button>
+                    <button class="btn-option" onclick="showStep(11)">Viver uma vida confortável sem preocupações</button>
+                    <button class="btn-option" onclick="showStep(11)">Ter liberdade para fazer minhas escolhas</button>
+                    <button class="btn-option" onclick="showStep(11)">Fazer diferença na vida de outras pessoas</button>
+                </div>
+            </div>
+
             <!-- TELA DE PAGAMENTO REAL -->
             <div class="step" id="step11">
                 <div class="result">
@@ -393,60 +490,4 @@
                             🛡️ Pagamento 100% Seguro • Mercado Pago
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
         
-        <footer>
-            <p>© 2024 Instituto de Inteligência Financeira Avançada • Desenvolvido por Especialistas</p>
-        </footer>
-    </div>
-
-    <script>
-        const MERCADOPAGO_PUBLIC_KEY = 'APP_USR-f76a33f9-459e-488e-9e89-0ccbf9610517';
-        let currentStep = 0;
-        const totalSteps = 12;
-
-        // Inicializar Mercado Pago
-        const mp = new MercadoPago(MERCADOPAGO_PUBLIC_KEY, {
-            locale: 'pt-BR'
-        });
-
-        function updateProgress() {
-            const progress = document.getElementById('progress');
-            const percentage = (currentStep / (totalSteps - 1)) * 100;
-            progress.style.width = `${percentage}%`;
-        }
-        
-        function showStep(step) {
-            document.querySelectorAll('.step').forEach(s => {
-                s.classList.remove('active');
-            });
-            document.getElementById(`step${step}`).classList.add('active');
-            currentStep = step;
-            updateProgress();
-        }
-        
-        function initiatePayment() {
-            // EM PRODUÇÃO: Aqui você integraria com o backend para criar a preferência de pagamento
-            
-            // Simulação do fluxo de pagamento
-            const paymentUrl = `https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=`;
-            
-            // Mostrar instruções para pagamento real
-            alert("💰 **PAGAMENTO MERCADO PAGO**\n\nPara ativar pagamentos reais:\n\n1. Configure um servidor backend\n2. Crie preferências de pagamento\n3. Processe notificações\n\n🔗 O cliente seria redirecionado para:\nhttps://mercadopago.com.br/checkout\n\n💎 Valor: R$ 4,99\n✅ Pagamento seguro\n💰 Dinheiro na sua conta automaticamente");
-            
-            // Em produção, descomente a linha abaixo:
-            // window.location.href = paymentUrl;
-        }
-        
-        // Inicializar
-        updateProgress();
-        
-        // Adicione as outras perguntas seguindo o mesmo padrão...
-        // Pergunta 2
-        // Pergunta 3
-        // ... até a pergunta 10
-    </script>
-</body>
-</html>
