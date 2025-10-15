@@ -1,291 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste Sua Capacidade de Enriquecer</title>
+    <title>Teste Financeiro Gratuito</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            color: #333;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            overflow: hidden;
-        }
-        
-        header {
-            background: linear-gradient(to right, #2c3e50, #4a6491);
+            font-family: Arial;
+            background: #1a2a6c;
             color: white;
-            padding: 30px 20px;
             text-align: center;
+            padding: 50px;
         }
-        
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        
-        .content {
-            padding: 30px;
-        }
-        
-        .step {
-            display: none;
-        }
-        
-        .step.active {
-            display: block;
-        }
-        
-        .question {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-        
-        .options label {
-            display: block;
-            padding: 12px 15px;
-            margin: 8px 0;
-            background: white;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        
-        .options input:checked + label {
-            background: #e8f5e8;
-            border-color: #28a745;
-        }
-        
         .btn {
             background: #28a745;
             color: white;
-            padding: 12px 25px;
+            padding: 15px 30px;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
+            font-size: 18px;
             margin: 10px;
-        }
-        
-        .btn-pay {
-            background: #009ee3;
-            font-size: 1.2rem;
-            padding: 15px 30px;
-        }
-        
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-        
-        .result {
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .score {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #28a745;
-            margin: 20px 0;
-        }
-        
-        .payment-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        
-        .price {
-            font-size: 2rem;
-            color: #009ee3;
-            font-weight: bold;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #f8f9fa;
-            color: #6c757d;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Teste Sua Capacidade de Enriquecer</h1>
-            <p>Descubra seu potencial financeiro - Teste 100% Gratuito</p>
-        </header>
-        
-        <div class="content">
-            <!-- Introdução -->
-            <div class="step active" id="step0">
-                <h2>Bem-vindo ao Teste Financeiro</h2>
-                <p>Responda 5 perguntas rápidas sobre seus hábitos financeiros e descubra:</p>
-                <ul style="margin: 20px 0; padding-left: 20px;">
-                    <li>Sua capacidade de enriquecimento</li>
-                    <li>Pontos fortes e áreas para melhorar</li>
-                    <li>Estratégias personalizadas</li>
-                </ul>
-                <p><strong>O teste é gratuito!</strong> Você só paga R$ 4,99 se quiser o relatório completo detalhado.</p>
-                <div style="text-align: center; margin-top: 30px;">
-                    <button class="btn" onclick="nextStep()">Fazer Teste Gratuito</button>
-                </div>
-            </div>
-            
-            <!-- Pergunta 1 -->
-            <div class="step" id="step1">
-                <div class="question">
-                    <h3>1. Quando você recebe dinheiro, qual é sua primeira atitude?</h3>
-                    <div class="options">
-                        <input type="radio" id="q1a" name="q1" value="1">
-                        <label for="q1a">Guardo uma parte antes de gastar com qualquer coisa</label>
-                        
-                        <input type="radio" id="q1b" name="q1" value="2">
-                        <label for="q1b">Pago minhas contas e depois vejo o que sobra</label>
-                        
-                        <input type="radio" id="q1c" name="q1" value="3">
-                        <label for="q1c">Compro coisas que preciso e quero</label>
-                    </div>
-                </div>
-                <div class="navigation">
-                    <button class="btn" onclick="prevStep()">Voltar</button>
-                    <button class="btn" onclick="nextStep()">Próxima</button>
-                </div>
-            </div>
-            
-            <!-- Pergunta 2 -->
-            <div class="step" id="step2">
-                <div class="question">
-                    <h3>2. Como você usa o cartão de crédito?</h3>
-                    <div class="options">
-                        <input type="radio" id="q2a" name="q2" value="1">
-                        <label for="q2a">Sempre pago a fatura total</label>
-                        
-                        <input type="radio" id="q2b" name="q2" value="2">
-                        <label for="q2b">Às vezes parcelo, mas controlo bem</label>
-                        
-                        <input type="radio" id="q2c" name="q2" value="3">
-                        <label for="q2c">Vivo parcelando compras</label>
-                    </div>
-                </div>
-                <div class="navigation">
-                    <button class="btn" onclick="prevStep()">Voltar</button>
-                    <button class="btn" onclick="nextStep()">Próxima</button>
-                </div>
-            </div>
-            
-            <!-- Adicione mais 3 perguntas seguindo o mesmo padrão -->
-            
-            <!-- Resultado Básico Gratuito -->
-            <div class="step" id="step6">
-                <div class="result">
-                    <h2>Teste Concluído! 🎉</h2>
-                    <p>Com base nas suas respostas, sua capacidade financeira é:</p>
-                    <div class="score">Boa</div>
-                    <p><strong>Resultado Básico Gratuito:</strong> Você demonstra bons hábitos financeiros!</p>
-                    
-                    <div class="payment-info">
-                        <h3>💎 Quer seu Relatório COMPLETO?</h3>
-                        <p>Desbloqueie análise detalhada + plano personalizado:</p>
-                        <p class="price">R$ 4,99</p>
-                        <ul style="text-align: left; margin: 15px 0;">
-                            <li>Análise ponto a ponto das suas respostas</li>
-                            <li>Plano personalizado para aumentar sua riqueza</li>
-                            <li>Estratégias específicas para seu perfil</li>
-                            <li>Dicas de investimento adequadas</li>
-                        </ul>
-                        <button class="btn btn-pay" onclick="showPayment()">Quero Meu Relatório Completo</button>
-                    </div>
-                    
-                    <button class="btn" onclick="restartTest()">Fazer Teste Novamente</button>
-                </div>
-            </div>
-            
-            <!-- Tela de Pagamento -->
-            <div class="step" id="step7">
-                <div class="result">
-                    <h2>Pagamento Seguro</h2>
-                    <div class="payment-info">
-                        <p>Para acessar seu relatório completo:</p>
-                        <p class="price">R$ 4,99</p>
-                        <p>Pagamento único • Acesso imediato</p>
-                        <div id="payment-button" style="margin: 20px 0;">
-                            <button class="btn btn-pay" onclick="processPayment()">Pagar com Mercado Pago</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <footer>
-            <p>Teste educativo • Pagamento opcional apenas para relatório completo</p>
-            <p>© 2024 Teste de Capacidade Financeira</p>
-        </footer>
-    </div>
-
-    <script>
-        let currentStep = 0;
-        const totalSteps = 7;
-        
-        function showStep(step) {
-            document.querySelectorAll('.step').forEach(s => {
-                s.classList.remove('active');
-            });
-            document.getElementById(`step${step}`).classList.add('active');
-            currentStep = step;
-        }
-        
-        function nextStep() {
-            if (currentStep < totalSteps - 1) {
-                showStep(currentStep + 1);
-            }
-        }
-        
-        function prevStep() {
-            if (currentStep > 0) {
-                showStep(currentStep - 1);
-            }
-        }
-        
-        function showPayment() {
-            showStep(6); // Vai para tela de pagamento
-        }
-        
-        function processPayment() {
-            alert("Em breve: Integração com Mercado Pago aqui!");
-            // Aqui vai a integração real com Mercado Pago
-        }
-        
-        function restartTest() {
-            // Limpar respostas
-            document.querySelectorAll('input[type="radio"]').forEach(input => {
-                input.checked = false;
-            });
-            // Voltar ao início
-            showStep(0);
-        }
-    </script>
+    <h1>💰 Teste Financeiro GRATUITO</h1>
+    <p>Descubra seu potencial de enriquecer</p>
+    <p><strong>Totalmente gratuito</strong> - Pague apenas se quiser relatório completo</p>
+    <button class="btn">Começar Teste Gratuito</button>
 </body>
 </html>
