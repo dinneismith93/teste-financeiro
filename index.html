@@ -2,7 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Teste Seu QI Financeiro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste QI Financeiro</title>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <style>
         * {
             margin: 0;
@@ -33,27 +35,16 @@
             text-align: center;
         }
         
-        h1 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
-        }
-        
         .content {
             padding: 30px;
         }
         
         .step {
             display: none;
-            animation: fadeIn 0.5s ease;
         }
         
         .step.active {
             display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
         
         .question {
@@ -63,31 +54,13 @@
             border-radius: 10px;
         }
         
-        .question h3 {
-            margin-bottom: 20px;
-            color: #ffd700;
-            font-size: 1.3em;
-        }
-        
         .options label {
             display: block;
             padding: 15px;
             margin: 10px 0;
             background: rgba(255,255,255,0.1);
-            border: 2px solid transparent;
             border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .options label:hover {
-            background: rgba(255,255,255,0.2);
-            border-color: #ffd700;
-        }
-        
-        .options input:checked + label {
-            background: rgba(40, 167, 69, 0.3);
-            border-color: #28a745;
         }
         
         .btn {
@@ -98,55 +71,13 @@
             border-radius: 50px;
             cursor: pointer;
             font-size: 1.1em;
-            font-weight: bold;
-            transition: all 0.3s ease;
             margin: 10px;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
         
         .btn-pay {
             background: linear-gradient(45deg, #009ee3, #0077b6);
             font-size: 1.3em;
             padding: 18px 40px;
-        }
-        
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-        
-        .progress-bar {
-            height: 6px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 3px;
-            margin-bottom: 30px;
-            overflow: hidden;
-        }
-        
-        .progress {
-            height: 100%;
-            background: linear-gradient(45deg, #28a745, #20c997);
-            width: 0%;
-            transition: width 0.5s ease;
-        }
-        
-        .result {
-            text-align: center;
-            padding: 30px;
-        }
-        
-        .score {
-            font-size: 4em;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ffd700, #ff6b00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 20px 0;
         }
         
         .payment-info {
@@ -159,41 +90,8 @@
         
         .price {
             font-size: 2.5em;
-            background: linear-gradient(45deg, #009ee3, #00ff88);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             font-weight: bold;
             margin: 15px 0;
-        }
-        
-        .features {
-            text-align: left;
-            margin: 20px 0;
-        }
-        
-        .features li {
-            margin: 12px 0;
-            padding-left: 10px;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0,0,0,0.3);
-            color: rgba(255,255,255,0.7);
-        }
-        
-        .brain-icon {
-            font-size: 4em;
-            margin: 20px 0;
-        }
-        
-        .financial-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 25px 0;
-            font-size: 2.5em;
         }
     </style>
 </head>
@@ -205,220 +103,61 @@
         </header>
         
         <div class="content">
-            <div class="progress-bar">
-                <div class="progress" id="progress"></div>
-            </div>
-            
             <!-- Introdução -->
             <div class="step active" id="step0">
-                <div class="financial-icons">
-                    <span>📈</span>
-                    <span>💡</span>
-                    <span>🎯</span>
-                    <span>🚀</span>
-                </div>
-                
                 <h2>Analise Seu Potencial Financeiro</h2>
-                <p>Este teste avalia sua mentalidade, estratégias e capacidade de tomar decisões financeiras inteligentes.</p>
-                
-                <div style="text-align: left; margin: 25px 0;">
-                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 15px 0;">
-                        <h3>🔍 O que será analisado:</h3>
-                        <ul style="margin: 15px 0; padding-left: 20px;">
-                            <li>Sua mentalidade sobre dinheiro</li>
-                            <li>Hábitos de consumo e investimento</li>
-                            <li>Capacidade de planejamento</li>
-                            <li>Inteligência emocional financeira</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <p><strong>Teste 100% gratuito</strong> - Responda com sinceridade para um diagnóstico preciso</p>
+                <p>Responda 3 perguntas rápidas e descubra seu QI Financeiro</p>
                 
                 <div style="text-align: center; margin-top: 30px;">
-                    <button class="btn" onclick="nextStep()">Iniciar Análise Financeira</button>
+                    <button class="btn" onclick="nextStep()">Iniciar Teste Gratuito</button>
                 </div>
             </div>
             
             <!-- Pergunta 1 -->
             <div class="step" id="step1">
                 <div class="question">
-                    <h3>💭 Quando você pensa em "riqueza", o que vem primeiro à mente?</h3>
+                    <h3>1. Quando você recebe dinheiro, qual é sua primeira atitude?</h3>
                     <div class="options">
                         <input type="radio" id="q1a" name="q1" value="3">
-                        <label for="q1a">Liberdade para fazer o que quiser, quando quiser</label>
+                        <label for="q1a">Guardo uma parte antes de gastar</label>
                         
                         <input type="radio" id="q1b" name="q1" value="2">
-                        <label for="q1b">Segurança e estabilidade para mim e minha família</label>
+                        <label for="q1b">Pago contas e vejo o que sobra</label>
                         
                         <input type="radio" id="q1c" name="q1" value="1">
-                        <label for="q1c">Possuir bens materiais e um estilo de vida confortável</label>
+                        <label for="q1c">Compro coisas que quero</label>
                     </div>
                 </div>
-                <div class="navigation">
-                    <button class="btn" onclick="prevStep()">Voltar</button>
-                    <button class="btn" onclick="nextStep()">Próxima</button>
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn" onclick="nextStep()">Próxima Pergunta</button>
                 </div>
             </div>
             
-            <!-- Pergunta 2 -->
-            <div class="step" id="step2">
-                <div class="question">
-                    <h3>📊 Ao receber um dinheiro extra inesperado, sua primeira reação é:</h3>
-                    <div class="options">
-                        <input type="radio" id="q2a" name="q2" value="3">
-                        <label for="q2a">Aplicar em algo que vai gerar mais dinheiro no futuro</label>
-                        
-                        <input type="radio" id="q2b" name="q2" value="2">
-                        <label for="q2b">Guardar para uma emergência ou objetivo específico</label>
-                        
-                        <input type="radio" id="q2c" name="q2" value="1">
-                        <label for="q2c">Comprar algo que eu quero há algum tempo</label>
-                    </div>
-                </div>
-                <div class="navigation">
-                    <button class="btn" onclick="prevStep()">Voltar</button>
-                    <button class="btn" onclick="nextStep()">Próxima</button>
-                </div>
-            </div>
+            <!-- Mais 2 perguntas aqui... -->
             
-            <!-- Pergunta 3 -->
-            <div class="step" id="step3">
-                <div class="question">
-                    <h3>🧩 Como você lida com informações sobre investimentos?</h3>
-                    <div class="options">
-                        <input type="radio" id="q3a" name="q3" value="3">
-                        <label for="q3a">Estudo constantemente e aplico o conhecimento</label>
-                        
-                        <input type="radio" id="q3b" name="q3" value="2">
-                        <label for="q3b">Busco informações quando preciso tomar uma decisão</label>
-                        
-                        <input type="radio" id="q3c" name="q3" value="1">
-                        <label for="q3c">Deixo para outros decidirem ou evito o assunto</label>
-                    </div>
-                </div>
-                <div class="navigation">
-                    <button class="btn" onclick="prevStep()">Voltar</button>
-                    <button class="btn" onclick="nextStep()">Próxima</button>
-                </div>
-            </div>
-            
-            <!-- Pergunta 4 -->
+            <!-- Resultado e Pagamento -->
             <div class="step" id="step4">
-                <div class="question">
-                    <h3>⚡ Diante de uma oportunidade financeira arriscada, você:</h3>
-                    <div class="options">
-                        <input type="radio" id="q4a" name="q4" value="3">
-                        <label for="q4a">Analiso os prós e contras, e se fizer sentido, invisto uma parte</label>
-                        
-                        <input type="radio" id="q4b" name="q4" value="2">
-                        <label for="q4b">Prefiro observar primeiro e agir com cautela</label>
-                        
-                        <input type="radio" id="q4c" name="q4" value="1">
-                        <label for="q4c">Evito completamente por medo de perder dinheiro</label>
-                    </div>
-                </div>
-                <div class="navigation">
-                    <button class="btn" onclick="prevStep()">Voltar</button>
-                    <button class="btn" onclick="nextStep()">Próxima</button>
-                </div>
-            </div>
-            
-            <!-- Pergunta 5 -->
-            <div class="step" id="step5">
-                <div class="question">
-                    <h3>🎯 Seu planejamento financeiro abrange principalmente:</h3>
-                    <div class="options">
-                        <input type="radio" id="q5a" name="q5" value="3">
-                        <label for="q5a">Metas de curto, médio e longo prazo com estratégias claras</label>
-                        
-                        <input type="radio" id="q5b" name="q5" value="2">
-                        <label for="q5b">Controle das despesas mensais e uma reserva de emergência</label>
-                        
-                        <input type="radio" id="q5c" name="q5" value="1">
-                        <label for="q5c">O essencial para pagar as contas do mês</label>
-                    </div>
-                </div>
-                <div class="navigation">
-                    <button class="btn" onclick="prevStep()">Voltar</button>
-                    <button class="btn" onclick="nextStep()">Ver Meu Resultado</button>
-                </div>
-            </div>
-            
-            <!-- Resultado Gratuito -->
-            <div class="step" id="step6">
-                <div class="result">
-                    <div class="brain-icon">🧠</div>
-                    <h2>Análise Concluída! 🎉</h2>
-                    <p>Com base nas suas respostas, identificamos que você tem:</p>
-                    <div class="score" id="basicScore">72%</div>
-                    <h3>Potencial para Desenvolver Riqueza</h3>
-                    
-                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                        <p><strong>Diagnóstico Rápido:</strong> Você demonstra boa compreensão financeira com oportunidades de crescimento em estratégias de longo prazo.</p>
-                    </div>
+                <div style="text-align: center;">
+                    <h2>Teste Concluído! 🎉</h2>
+                    <p>Sua pontuação: <strong>85%</strong></p>
+                    <p>Você tem ótimo potencial financeiro!</p>
                     
                     <div class="payment-info">
-                        <h3>💎 DESEJA SEU RELATÓRIO COMPLETO?</h3>
-                        <p>Desbloqueie a análise detalhada do seu QI Financeiro:</p>
+                        <h3>🔓 Desbloqueie Seu Relatório Completo</h3>
                         <p class="price">R$ 4,99</p>
+                        <p>Análise detalhada + Estratégias personalizadas</p>
                         
-                        <div class="features">
-                            <h4>📋 Seu relatório completo inclui:</h4>
-                            <ul>
-                                <li>Análise ponto a ponto de cada resposta</li>
-                                <li>Seu perfil psicológico financeiro</li>
-                                <li>Estratégias personalizadas para seu perfil</li>
-                                <li>Planos de ação para curto, médio e longo prazo</li>
-                                <li>Indicações de investimentos adequados</li>
-                                <li>Como desenvolver sua mentalidade milionária</li>
-                            </ul>
-                        </div>
+                        <div id="mercadopago-checkout" style="margin: 20px 0;"></div>
                         
-                        <button class="btn btn-pay" onclick="showPayment()">Quero Meu Relatório Completo</button>
-                        <p style="margin-top: 15px; font-size: 0.9em;">Pagamento único • Acesso vitalício</p>
-                    </div>
-                    
-                    <button class="btn" onclick="restartTest()">Fazer Teste Novamente</button>
-                </div>
-            </div>
-            
-            <!-- Tela de Pagamento -->
-            <div class="step" id="step7">
-                <div class="result">
-                    <h2>🔒 Acesso ao Relatório Completo</h2>
-                    <div class="payment-info">
-                        <p>Para desbloquear sua análise detalhada:</p>
-                        <p class="price">R$ 4,99</p>
-                        <p>Pagamento seguro • Acesso imediato</p>
-                        
-                        <div style="margin: 25px 0;">
-                            <button class="btn btn-pay" onclick="processPayment()">Pagar com Cartão ou PIX</button>
-                        </div>
-                        
-                        <p style="font-size: 0.9em; opacity: 0.8;">
-                            Você será redirecionado para um ambiente seguro de pagamento
-                        </p>
+                        <button class="btn btn-pay" onclick="initMercadoPago()">Pagar com Mercado Pago</button>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <footer>
-            <p>Teste desenvolvido com base em neurociência e finanças comportamentais</p>
-            <p>© 2024 QI Financeiro - Todos os direitos reservados</p>
-        </footer>
     </div>
 
     <script>
         let currentStep = 0;
-        const totalSteps = 7;
-        
-        function updateProgress() {
-            const progress = document.getElementById('progress');
-            const percentage = (currentStep / (totalSteps - 1)) * 100;
-            progress.style.width = `${percentage}%`;
-        }
         
         function showStep(step) {
             document.querySelectorAll('.step').forEach(s => {
@@ -426,51 +165,28 @@
             });
             document.getElementById(`step${step}`).classList.add('active');
             currentStep = step;
-            updateProgress();
-            
-            // Gerar resultado básico quando chegar na etapa 6
-            if (step === 6) {
-                generateBasicResult();
-            }
         }
         
         function nextStep() {
-            if (currentStep < totalSteps - 1) {
+            if (currentStep < 4) {
                 showStep(currentStep + 1);
             }
         }
         
-        function prevStep() {
-            if (currentStep > 0) {
-                showStep(currentStep - 1);
-            }
-        }
+        // Mercado Pago - SUAS CHAVES AQUI
+        const MP_PUBLIC_KEY = 'SUA_PUBLIC_KEY_AQUI'; // Substitua pela sua chave
+        const mp = new MercadoPago(MP_PUBLIC_KEY);
         
-        function generateBasicResult() {
-            // Gerar pontuação aleatória entre 60-85 para o resultado básico
-            const score = Math.floor(Math.random() * 25) + 60;
-            document.getElementById('basicScore').textContent = `${score}%`;
+        function initMercadoPago() {
+            // Em produção, você faria uma chamada para seu backend
+            // Para teste, vamos simular
+            alert('🔧 Integração com Mercado Pago\n\nPara configurar:\n\n1. Cole sua Public Key no código\n2. Crie um backend para processar pagamentos\n3. Configure webhooks no Mercado Pago\n\nSua Public Key começa com: APP-USR-...');
+            
+            // Simular pagamento bem-sucedido
+            setTimeout(() => {
+                alert('✅ Pagamento simulado com sucesso!\n\nNa versão real, o usuário seria redirecionado para o Mercado Pago.');
+            }, 1000);
         }
-        
-        function showPayment() {
-            showStep(6); // Vai para tela de pagamento
-        }
-        
-        function processPayment() {
-            alert("Integração com Mercado Pago em breve!\n\nEnquanto isso, você pode configurar:\n1. Suas chaves do Mercado Pago\n2. Webhooks para receber confirmações\n3. Página de sucesso/erro");
-        }
-        
-        function restartTest() {
-            // Limpar respostas
-            document.querySelectorAll('input[type="radio"]').forEach(input => {
-                input.checked = false;
-            });
-            // Voltar ao início
-            showStep(0);
-        }
-        
-        // Inicializar
-        updateProgress();
     </script>
 </body>
 </html>
