@@ -3,56 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentalidade Milionária</title>
+    <title>Mentalidade Milionária - Descubra Seu Potencial Financeiro</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
         .container {
             max-width: 800px;
             margin: 0 auto;
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
-        button {
-            background-color: #007bff;
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            margin-top: 20px;
-            width: 100%;
+            padding: 40px 30px;
+            text-align: center;
         }
-        button:hover {
-            background-color: #0056b3;
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .feature {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .btn-start {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn-start:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
+        }
+        
+        .guarantee {
+            text-align: center;
+            margin-top: 20px;
+            color: #6c757d;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Mentalidade Milionária</h1>
-        <p>Descubra como os ricos pensam</p>
+        <div class="header">
+            <h1>🚀 MENTALIDADE MILIONÁRIA</h1>
+            <p>Descubra o Segredo que Transformou Milhares de Pessoas em Investidores de Sucesso</p>
+        </div>
         
-        <h2>Estratégias Comprovadas</h2>
-        <p>Métodos que geram resultados</p>
-        
-        <h2>Plano de Ação</h2>
-        <p>Passo a passo personalizado</p>
-        
-        <button onclick="iniciarTeste()">INICIAR TESTE AVANÇADO</button>
-        <p><small>Teste Científico • 100% Confidencial</small></p>
+        <div class="content">
+            <div class="feature">
+                <h3>🎯 DIAGNÓSTICO PRECISO</h3>
+                <p>Identifique exatamente onde você está na sua jornada financeira e quais são os 3 maiores obstáculos que impedem sua liberdade.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>📊 ESTRATÉGIAS COMPROVADAS</h3>
+                <p>Métodos validados por especialistas que geram resultados reais, não apenas teoria.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>🛠 PLANO DE AÇÃO PERSONALIZADO</h3>
+                <p>Um passo a passo específico para sua realidade, com prazos e metas claras.</p>
+            </div>
+            
+            <button class="btn-start" onclick="iniciarTeste()">
+                🔍 INICIAR TESTE AVANÇADO - 100% GRATUITO
+            </button>
+            
+            <div class="guarantee">
+                ⚡ Teste Científico • 🔒 100% Confidencial • 🎯 Resultado Imediato
+            </div>
+        </div>
     </div>
 
     <script>
         function iniciarTeste() {
-            // Redireciona para a página de teste
             window.location.href = "teste.html";
         }
     </script>
