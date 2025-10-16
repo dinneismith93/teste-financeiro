@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado pela Compra! - Mentalidade Milionária</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        .bonus {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
+            text-align: center;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 PARABÉNS PELA SUA DECISÃO!</h1>
+            <p>Você deu o primeiro passo rumo à liberdade financeira</p>
+        </div>
+        
+        <div class="content">
+            <div class="download-section">
+                <h2>📥 BAIXE SEU EBOOK AGORA</h2>
+                <p>Clique no botão abaixo para fazer o download imediato:</p>
+                
+                <a href="https://drive.google.com/uc?export=download&id=SEU_ID_DO_GOOGLE_DRIVE_AQUI" class="download-btn" download>
+                    🚀 BAIXAR EBOOK COMPLETO (PDF)
+                </a>
+                
+                <p style="margin-top: 10px; color: #666;">
+                    <strong>📚 32 páginas de conteúdo exclusivo</strong>
+                </p>
+            </div>
+
+            <div class="bonus">
+                <h3>🎁 BÔNUS EXCLUSIVO INCLUÍDO</h3>
+                <p><strong>Planilha de Controle Financeiro 2025</strong></p>
+                <a href="https://drive.google.com/uc?export=download&id=SEU_ID_PLANILHA_AQUI" class="download-btn" download>
+                    📊 BAIXAR PLANILHA (EXCEL)
+                </a>
+            </div>
+
+            <div class="step">
+                <h3>📋 COMO APROVEITAR AO MÁXIMO:</h3>
+                <ol>
+                    <li><strong>Leia o ebook hoje mesmo</strong> - Não deixe para depois</li>
+                    <li><strong>Anote suas dúvidas</strong> - Faça anotações durante a leitura</li>
+                    <li><strong>Baixe a planilha</strong> - Comece seu controle financeiro agora</li>
+                    <li><strong>Revise a cada 3 meses</strong> - Seu progresso vai surpreender</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>💬 PRECISA DE AJUDA?</h3>
+                <p>Entre em contato conosco pelo WhatsApp:</p>
+                <a href="https://wa.me/5511999999999?text=Olá! Comprei o ebook e gostaria de tirar uma dúvida" 
+                   class="whatsapp-btn" target="_blank">
+                   📞 FALAR NO WHATSAPP
+                </a>
+                <p style="margin-top: 10px; color: #666; font-size: 0.9em;">
+                    Horário de atendimento: Segunda a Sexta, 9h às 18h
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="download-btn" onclick="voltarInicio()" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    🏠 Voltar ao Início
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function voltarInicio() {
+            window.location.href = "index.html";
+        }
+        
+        // Download automático após 3 segundos
+        setTimeout(function() {
+            alert("📚 Seu download vai começar automaticamente...");
+        }, 3000);
+    </script>
+</body>
+</html>
