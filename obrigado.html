@@ -91,6 +91,16 @@
             display: inline-block;
             margin: 10px;
         }
+        
+        .warning-box {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #dc3545;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -105,7 +115,7 @@
                 <h2>📥 BAIXE SEU EBOOK AGORA</h2>
                 <p>Clique no botão abaixo para fazer o download imediato:</p>
                 
-                <a href="https://drive.google.com/uc?export=download&id=SEU_ID_DO_GOOGLE_DRIVE_AQUI" class="download-btn" download>
+                <a href="#" class="download-btn" onclick="baixarEbook()">
                     🚀 BAIXAR EBOOK COMPLETO (PDF)
                 </a>
                 
@@ -117,9 +127,15 @@
             <div class="bonus">
                 <h3>🎁 BÔNUS EXCLUSIVO INCLUÍDO</h3>
                 <p><strong>Planilha de Controle Financeiro 2025</strong></p>
-                <a href="https://drive.google.com/uc?export=download&id=SEU_ID_PLANILHA_AQUI" class="download-btn" download>
+                <a href="#" class="download-btn" onclick="baixarPlanilha()">
                     📊 BAIXAR PLANILHA (EXCEL)
                 </a>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ ATENÇÃO: DOWNLOAD MANUAL</strong><br>
+                Os arquivos serão enviados para seu email em até 24 horas.<br>
+                Envie um comprovante para: <strong>militarsmith@outlook.com</strong>
             </div>
 
             <div class="step">
@@ -127,7 +143,7 @@
                 <ol>
                     <li><strong>Leia o ebook hoje mesmo</strong> - Não deixe para depois</li>
                     <li><strong>Anote suas dúvidas</strong> - Faça anotações durante a leitura</li>
-                    <li><strong>Baixe a planilha</strong> - Comece seu controle financeiro agora</li>
+                    <li><strong>Use a planilha</strong> - Comece seu controle financeiro agora</li>
                     <li><strong>Revise a cada 3 meses</strong> - Seu progresso vai surpreender</li>
                 </ol>
             </div>
@@ -157,10 +173,18 @@
             window.location.href = "index.html";
         }
         
-        // Download automático após 3 segundos
+        function baixarEbook() {
+            alert("📚 O ebook será enviado para seu email em até 24 horas.\nEnvie o comprovante para: militarsmith@outlook.com");
+        }
+        
+        function baixarPlanilha() {
+            alert("📊 A planilha será enviada para seu email junto com o ebook.\nAgradecemos pela compreensão!");
+        }
+        
+        // Mensagem automática
         setTimeout(function() {
-            alert("📚 Seu download vai começar automaticamente...");
-        }, 3000);
+            alert("🎉 Obrigado pela compra! Seus arquivos serão enviados por email.");
+        }, 2000);
     </script>
 </body>
 </html>
