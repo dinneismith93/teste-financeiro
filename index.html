@@ -3,144 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste de QI Financeiro</title>
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <title>Mentalidade Milionária</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); color: #333; min-height: 100vh; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 25px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); overflow: hidden; }
-        header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 40px 30px; text-align: center; }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .content { padding: 30px; }
-        .step { display: none; }
-        .step.active { display: block; }
-        .btn { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 15px 30px; border: none; border-radius: 25px; cursor: pointer; font-size: 1.1rem; margin: 10px; }
-        .btn-option { display: block; background: #f8f9fa; color: #333; padding: 15px; border: 2px solid #e0e0e0; border-radius: 10px; cursor: pointer; margin: 8px 0; width: 100%; text-align: left; }
-        .question { margin-bottom: 20px; padding: 20px; background: #f8f9fa; border-radius: 15px; }
-        .progress-bar { height: 10px; background: #e9ecef; border-radius: 5px; margin: 20px 0; overflow: hidden; }
-        .progress { height: 100%; background: linear-gradient(135deg, #00b09b, #96c93d); width: 0%; transition: width 0.6s; }
-        .result, .payment-section { text-align: center; padding: 30px; }
-        .price { font-size: 3rem; color: #2c3e50; font-weight: bold; margin: 20px 0; }
-        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
-        .benefit-card { background: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        footer { text-align: center; padding: 20px; background: #f8f9fa; color: #6c757d; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>QI FINANCEIRO PRO</h1>
-            <p>Descubra Seu Potencial para Criar Riqueza</p>
-        </header>
+        <h1>Mentalidade Milionária</h1>
+        <p>Descubra como os ricos pensam</p>
         
-        <div class="content">
-            <div class="progress-bar"><div class="progress" id="progress"></div></div>
-            
-            <!-- TELA INICIAL -->
-            <div class="step active" id="step0">
-                <h2 style="text-align: center; margin-bottom: 20px;">AVALIE SUA INTELIGENCIA FINANCEIRA</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-card"><div style="font-size: 2rem;">💡</div><h4>Mentalidade</h4><p>Como os ricos pensam</p></div>
-                    <div class="benefit-card"><div style="font-size: 2rem;">📈</div><h4>Estrategias</h4><p>Metodos comprovados</p></div>
-                    <div class="benefit-card"><div style="font-size: 2rem;">🚀</div><h4>Plano de Acao</h4><p>Passo a passo</p></div>
-                </div>
-                <div style="text-align: center; margin-top: 30px;">
-                    <button class="btn" onclick="nextStep()">INICIAR TESTE AVANCADO</button>
-                </div>
-                <div style="text-align: center; margin-top: 20px; color: #28a745; font-weight: bold;">
-                    🔒 Teste Confidencial
-                </div>
-            </div>
-            
-            <!-- PERGUNTAS -->
-            <div class="step" id="step1">
-                <div class="question">
-                    <h3>1. Quando voce recebe dinheiro, qual seu primeiro pensamento?</h3>
-                    <button class="btn-option" onclick="nextStep()">Em que posso gastar</button>
-                    <button class="btn-option" onclick="nextStep()">Como pagar minhas contas</button>
-                    <button class="btn-option" onclick="nextStep()">Quanto posso investir</button>
-                    <button class="btn-option" onclick="nextStep()">Como fazer dinheiro trabalhar para mim</button>
-                </div>
-            </div>
-            
-            <div class="step" id="step2">
-                <div class="question">
-                    <h3>2. Como voce ve oportunidades de investimento?</h3>
-                    <button class="btn-option" onclick="nextStep()">Prefiro evitar riscos</button>
-                    <button class="btn-option" onclick="nextStep()">Analiso cuidadosamente</button>
-                    <button class="btn-option" onclick="nextStep()">Busco oportunidades</button>
-                    <button class="btn-option" onclick="nextStep()">Crio minhas proprias oportunidades</button>
-                </div>
-            </div>
-            
-            <!-- MAIS PERGUNTAS AQUI... -->
-            
-            <!-- TELA FINAL -->
-            <div class="step" id="step11">
-                <div class="result">
-                    <h2>🎉 TESTE CONCLUIDO!</h2>
-                    <p>Seu relatorio esta pronto!</p>
-                    
-                    <div class="payment-section" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 30px; border-radius: 20px; margin: 20px 0;">
-                        <h3>ACESSE SEU RELATORIO COMPLETO</h3>
-                        <div class="price" style="color: white;">R$ 4,99</div>
-                        
-                        <div class="benefits-grid">
-                            <div class="benefit-card" style="background: rgba(255,255,255,0.2); color: white;">
-                                <div style="font-size: 2rem;">📊</div>
-                                <h4>Analise Detalhada</h4>
-                            </div>
-                            <div class="benefit-card" style="background: rgba(255,255,255,0.2); color: white;">
-                                <div style="font-size: 2rem;">🎯</div>
-                                <h4>Estrategias</h4>
-                            </div>
-                            <div class="benefit-card" style="background: rgba(255,255,255,0.2); color: white;">
-                                <div style="font-size: 2rem;">💎</div>
-                                <h4>Mentoria</h4>
-                            </div>
-                        </div>
-                        
-                        <button class="btn" onclick="openPayment()" style="background: linear-gradient(135deg, #00b09b, #96c93d); padding: 20px 40px; font-size: 1.3rem; margin: 20px 0;">
-                            💳 PAGAR AGORA - R$ 4,99
-                        </button>
-                        
-                        <div style="color: white; margin-top: 20px;">
-                            🛡️ Pagamento Seguro • Mercado Pago
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h2>Estratégias Comprovadas</h2>
+        <p>Métodos que geram resultados</p>
         
-        <footer>
-            <p>© 2024 Instituto de Inteligencia Financeira</p>
-        </footer>
+        <h2>Plano de Ação</h2>
+        <p>Passo a passo personalizado</p>
+        
+        <button onclick="iniciarTeste()">INICIAR TESTE AVANÇADO</button>
+        <p><small>Teste Científico • 100% Confidencial</small></p>
     </div>
 
     <script>
-        const MERCADOPAGO_PUBLIC_KEY = 'APP_USR-176a33f9-459e-488e-9e89-0ccbf9610517';
-        let currentStep = 0;
-        const totalSteps = 12;
-
-        const mp = new MercadoPago(MERCADOPAGO_PUBLIC_KEY, { locale: 'pt-BR' });
-
-        function updateProgress() {
-            const progress = (currentStep / (totalSteps - 1)) * 100;
-            document.getElementById('progress').style.width = progress + '%';
+        function iniciarTeste() {
+            // Redireciona para a página de teste
+            window.location.href = "teste.html";
         }
-        
-        function nextStep() {
-            document.getElementById('step' + currentStep).classList.remove('active');
-            currentStep++;
-            document.getElementById('step' + currentStep).classList.add('active');
-            updateProgress();
-        }
-
-        function openPayment() {
-            alert("Pagamento real ativado! Agora vamos integrar Mercado Pago");
-        }
-
-        updateProgress();
     </script>
 </body>
 </html>
