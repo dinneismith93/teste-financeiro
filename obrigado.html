@@ -92,13 +92,22 @@
             margin: 10px;
         }
         
-        .warning-box {
-            background: #f8d7da;
-            color: #721c24;
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+            text-align: center;
+        }
+
+        .auto-download {
+            background: #e3f2fd;
             padding: 15px;
             border-radius: 8px;
             margin: 15px 0;
-            border-left: 4px solid #dc3545;
+            border-left: 4px solid #2196f3;
             text-align: center;
         }
     </style>
@@ -106,57 +115,61 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🎉 PARABÉNS PELA SUA DECISÃO!</h1>
-            <p>Você deu o primeiro passo rumo à liberdade financeira</p>
+            <h1>🎉 PAGAMENTO CONFIRMADO!</h1>
+            <p>Seu ebook está pronto para download</p>
         </div>
         
         <div class="content">
+            <div class="success-message">
+                <h3>✅ PAGAMENTO APROVADO!</h3>
+                <p>Obrigado por confiar em nosso trabalho. Seu ebook premium foi liberado!</p>
+            </div>
+
+            <div class="auto-download">
+                <p>⏳ <strong>Download iniciando automaticamente...</strong></p>
+            </div>
+
             <div class="download-section">
                 <h2>📥 BAIXE SEU EBOOK AGORA</h2>
-                <p>Clique no botão abaixo para fazer o download imediato:</p>
+                <p>Clique no botão abaixo para download imediato:</p>
                 
-                <a href="#" class="download-btn" onclick="baixarEbook()">
-                    🚀 BAIXAR EBOOK COMPLETO (PDF)
+                <a href="https://drive.google.com/uc?export=download&id=1moGn2DLiPDFq8jRGZA3HTZ9SrIoHv9BV" 
+                   class="download-btn" 
+                   download="Estrategias-Financeiras-2025-Mentalidade-Milionaria.pdf"
+                   id="downloadLink">
+                    🚀 BAIXAR EBOOK COMPLETO (PDF - 20+ Páginas)
                 </a>
                 
                 <p style="margin-top: 10px; color: #666;">
-                    <strong>📚 32 páginas de conteúdo exclusivo</strong>
+                    <strong>📚 20+ páginas de conteúdo premium • Atualizado 2025</strong>
                 </p>
             </div>
 
             <div class="bonus">
-                <h3>🎁 BÔNUS EXCLUSIVO INCLUÍDO</h3>
+                <h3>🎁 BÔNUS EXCLUSIVO</h3>
                 <p><strong>Planilha de Controle Financeiro 2025</strong></p>
-                <a href="#" class="download-btn" onclick="baixarPlanilha()">
-                    📊 BAIXAR PLANILHA (EXCEL)
-                </a>
-            </div>
-
-            <div class="warning-box">
-                <strong>⚠️ ATENÇÃO: DOWNLOAD MANUAL</strong><br>
-                Os arquivos serão enviados para seu email em até 24 horas.<br>
-                Envie um comprovante para: <strong>militarsmith@outlook.com</strong>
+                <p style="color: #666; margin: 10px 0;">Disponível em breve por email!</p>
             </div>
 
             <div class="step">
                 <h3>📋 COMO APROVEITAR AO MÁXIMO:</h3>
                 <ol>
-                    <li><strong>Leia o ebook hoje mesmo</strong> - Não deixe para depois</li>
-                    <li><strong>Anote suas dúvidas</strong> - Faça anotações durante a leitura</li>
-                    <li><strong>Use a planilha</strong> - Comece seu controle financeiro agora</li>
-                    <li><strong>Revise a cada 3 meses</strong> - Seu progresso vai surpreender</li>
+                    <li><strong>Salve o ebook</strong> - Baixe e guarde no seu computador/celular</li>
+                    <li><strong>Leia hoje mesmo</strong> - Não deixe para depois</li>
+                    <li><strong>Anote as estratégias</strong> - Aplique as que fazem sentido para você</li>
+                    <li><strong>Revise mensalmente</strong> - Acompanhe seu progresso</li>
                 </ol>
             </div>
 
             <div class="step">
                 <h3>💬 PRECISA DE AJUDA?</h3>
                 <p>Entre em contato conosco pelo WhatsApp:</p>
-                <a href="https://wa.me/5511999999999?text=Olá! Comprei o ebook e gostaria de tirar uma dúvida" 
+                <a href="https://wa.me/5511999999999?text=Olá! Baixei o ebook Estratégias Financeiras 2025 e gostaria de tirar uma dúvida" 
                    class="whatsapp-btn" target="_blank">
                    📞 FALAR NO WHATSAPP
                 </a>
                 <p style="margin-top: 10px; color: #666; font-size: 0.9em;">
-                    Horário de atendimento: Segunda a Sexta, 9h às 18h
+                    Horário: Segunda a Sexta, 9h às 18h
                 </p>
             </div>
 
@@ -170,21 +183,18 @@
 
     <script>
         function voltarInicio() {
-            window.location.href = "index.html";
+            window.location.href = "https://dinneismith93.github.io/teste-financeiro/";
         }
         
-        function baixarEbook() {
-            alert("📚 O ebook será enviado para seu email em até 24 horas.\nEnvie o comprovante para: militarsmith@outlook.com");
-        }
-        
-        function baixarPlanilha() {
-            alert("📊 A planilha será enviada para seu email junto com o ebook.\nAgradecemos pela compreensão!");
-        }
-        
-        // Mensagem automática
+        // Download automático após 3 segundos
         setTimeout(function() {
-            alert("🎉 Obrigado pela compra! Seus arquivos serão enviados por email.");
-        }, 2000);
+            document.getElementById('downloadLink').click();
+        }, 3000);
+
+        // Mensagem de confirmação
+        setTimeout(function() {
+            alert("🎉 Obrigado pela compra! Seu download do ebook foi iniciado automaticamente.");
+        }, 1000);
     </script>
 </body>
 </html>
