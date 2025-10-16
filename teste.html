@@ -141,6 +141,15 @@
             margin: 15px 0;
             border-left: 4px solid #ffc107;
         }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #dc3545;
+        }
     </style>
 </head>
 <body>
@@ -233,16 +242,23 @@
                 <p>✅ Bônus: Curso de educação financeira</p>
             </div>
 
-            <!-- BOTÃO DO MERCADO PAGO COM SEU LINK -->
-            <a href="https://mpago.la/1hHqa4e" 
-               class="btn btn-payment" 
-               style="text-decoration: none; display: inline-block;"
-               target="_blank">
-               💳 COMPRAR AGORA - R$ 19,99
-            </a>
+            <!-- BOTÃO DO MERCADO PAGO CORRIGIDO -->
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="https://mpago.la/1hHqa4e" 
+                   class="btn btn-payment" 
+                   style="text-decoration: none; display: inline-block;"
+                   target="_blank">
+                   💳 COMPRAR AGORA - R$ 19,99
+                </a>
+            </div>
+            
+            <div class="error-message">
+                <strong>⚠️ Problema com o pagamento?</strong><br>
+                Clique diretamente neste link: <br>
+                <a href="https://mpago.la/1hHqa4e" style="color: #007bff; word-break: break-all;" target="_blank">https://mpago.la/1hHqa4e</a>
+            </div>
             
             <p style="margin: 15px 0; color: #666;">Pagamento 100% seguro via Mercado Pago</p>
-            <p style="margin: 10px 0; color: #888; font-size: 0.9em;">⚠️ Oferta por tempo limitado</p>
             
             <button class="btn" onclick="voltarInicio()">↩ Voltar ao Início</button>
         </div>
@@ -259,16 +275,13 @@
         }
 
         function nextQuestion() {
-            // Calcula a pontuação da pergunta atual
             const selectedOption = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
             if (selectedOption) {
                 score += parseInt(selectedOption.value);
             }
 
-            // Esconde pergunta atual
             document.getElementById(`question${currentQuestion}`).style.display = 'none';
             
-            // Avança para próxima pergunta
             currentQuestion++;
             
             if (currentQuestion <= totalQuestions) {
@@ -283,7 +296,6 @@
         }
 
         function showResults() {
-            // Calcula última pergunta
             const selectedOption = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
             if (selectedOption) {
                 score += parseInt(selectedOption.value);
@@ -292,7 +304,6 @@
             document.getElementById('questionContainer').style.display = 'none';
             document.getElementById('resultContainer').style.display = 'block';
             
-            // Mostra resultado
             document.getElementById('finalScore').textContent = score + '/12';
             
             let level, resultText, recommendation;
