@@ -3,41 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste Avançado</title>
+    <title>Teste Financeiro - Mentalidade Milionária</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
         .container {
             max-width: 800px;
             margin: 0 auto;
             background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            background: #ecf0f1;
+            height: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s;
+        }
+        
+        .question-container {
+            padding: 30px;
+            display: block;
+        }
+        
+        .result-container {
+            padding: 30px;
+            display: none;
+        }
+        
+        .payment-container {
+            padding: 30px;
+            display: none;
+            text-align: center;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+        }
+        
+        .question h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .options label {
+            display: block;
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .options label:hover {
+            border-color: #667eea;
+            background: #e9ecef;
+        }
+        
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: transform 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-payment {
+            background: linear-gradient(135deg, #009ee3, #00c4ff);
+            padding: 20px 40px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        
+        .result-score {
+            font-size: 3em;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .recommendation {
+            background: #e8f5e8;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Teste Avançado</h1>
-        <p>Esta é a página do teste. Aqui você pode adicionar:</p>
-        <ul>
-            <li>Perguntas do teste</li>
-            <li>Formulários</li>
-            <li>Calculadoras</li>
-            <li>Ou qualquer conteúdo que quiser</li>
-        </ul>
-        <button onclick="voltarInicio()">Voltar ao Início</button>
+        <div class="header">
+            <h1>🔍 TESTE SEU POTENCIAL FINANCEIRO</h1>
+            <p>Responda com sinceridade para receber sua análise personalizada</p>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <!-- TELA DO QUESTIONÁRIO -->
+        <div class="question-container" id="questionContainer">
+            <div class="question" id="question1">
+                <h3>1. Qual é o seu conhecimento sobre investimentos?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="1"> Iniciante - Sei pouco ou nada</label>
+                    <label><input type="radio" name="q1" value="2"> Básico - Conheço poupança e CDB</label>
+                    <label><input type="radio" name="q1" value="3"> Intermediário - Invisto em ações e FIIs</label>
+                    <label><input type="radio" name="q1" value="4"> Avançado - Tenho carteira diversificada</label>
+                </div>
+            </div>
+
+            <div class="question" id="question2" style="display: none;">
+                <h3>2. Quanto você consegue economizar por mês?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="1"> Menos de R$ 100</label>
+                    <label><input type="radio" name="q2" value="2"> Entre R$ 100 e R$ 500</label>
+                    <label><input type="radio" name="q2" value="3"> Entre R$ 500 e R$ 1.000</label>
+                    <label><input type="radio" name="q2" value="4"> Mais de R$ 1.000</label>
+                </div>
+            </div>
+
+            <div class="question" id="question3" style="display: none;">
+                <h3>3. Qual seu principal objetivo financeiro?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="1"> Sair das dívidas</label>
+                    <label><input type="radio" name="q3" value="2"> Formar uma reserva de emergência</label>
+                    <label><input type="radio" name="q3" value="3"> Aumentar minha renda</label>
+                    <label><input type="radio" name="q3" value="4"> Liberdade financeira</label>
+                </div>
+            </div>
+
+            <button class="btn" onclick="nextQuestion()" id="nextBtn">PRÓXIMA PERGUNTA</button>
+            <button class="btn" onclick="showResults()" id="resultsBtn" style="display: none;">VER MEU RESULTADO</button>
+        </div>
+
+        <!-- TELA DE RESULTADO -->
+        <div class="result-container" id="resultContainer">
+            <h2>🎯 SEU DIAGNÓSTICO FINANCEIRO</h2>
+            <div class="result-score" id="finalScore">0/12</div>
+            
+            <div class="recommendation">
+                <h3>📊 SUA PONTUAÇÃO: <span id="scoreLevel">INICIANTE</span></h3>
+                <p id="resultText">Com base nas suas respostas, identificamos grandes oportunidades de melhoria na sua educação financeira.</p>
+            </div>
+
+            <div class="recommendation">
+                <h3>🚀 PRÓXIMOS PASSOS RECOMENDADOS:</h3>
+                <p id="recommendationText">Para alcançar seus objetivos, você precisa de um plano específico e orientação especializada.</p>
+            </div>
+
+            <button class="btn btn-payment" onclick="showPayment()">
+                💎 QUERO MEU PLANO PERSONALIZADO - R$ 97,00
+            </button>
+            
+            <button class="btn" onclick="voltarInicio()">↩ Voltar ao Início</button>
+        </div>
+
+        <!-- TELA DE PAGAMENTO -->
+        <div class="payment-container" id="paymentContainer">
+            <h2>💰 ACESSO AO PLANO MILIONÁRIO</h2>
+            <div class="recommendation">
+                <h3>O que você vai receber:</h3>
+                <p>✅ Plano de ação 100% personalizado</p>
+                <p>✅ Estratégias de investimento comprovadas</p>
+                <p>✅ Acesso à comunidade exclusiva</p>
+                <p>✅ Suporte individual por 30 dias</p>
+                <p>✅ Bônus: Curso de educação financeira</p>
+            </div>
+
+            <!-- BOTÃO DO MERCADO PAGO - SUBSTITUA SEU LINK AQUI -->
+            <a href="https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=SEU_CODIGO_AQUI" 
+               class="btn btn-payment" 
+               style="text-decoration: none; display: inline-block;">
+               💳 PAGAR COM MERCADO PAGO - R$ 97,00
+            </a>
+            
+            <p style="margin: 15px 0; color: #666;">Pagamento 100% seguro via Mercado Pago</p>
+            
+            <button class="btn" onclick="voltarInicio()">↩ Voltar ao Início</button>
+        </div>
     </div>
 
     <script>
+        let currentQuestion = 1;
+        const totalQuestions = 3;
+        let score = 0;
+
+        function updateProgress() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+        }
+
+        function nextQuestion() {
+            // Calcula a pontuação da pergunta atual
+            const selectedOption = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
+            if (selectedOption) {
+                score += parseInt(selectedOption.value);
+            }
+
+            // Esconde pergunta atual
+            document.getElementById(`question${currentQuestion}`).style.display = 'none';
+            
+            // Avança para próxima pergunta
+            currentQuestion++;
+            
+            if (currentQuestion <= totalQuestions) {
+                document.getElementById(`question${currentQuestion}`).style.display = 'block';
+                updateProgress();
+                
+                if (currentQuestion === totalQuestions) {
+                    document.getElementById('nextBtn').style.display = 'none';
+                    document.getElementById('resultsBtn').style.display = 'inline-block';
+                }
+            }
+        }
+
+        function showResults() {
+            // Calcula última pergunta
+            const selectedOption = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
+            if (selectedOption) {
+                score += parseInt(selectedOption.value);
+            }
+
+            document.getElementById('questionContainer').style.display = 'none';
+            document.getElementById('resultContainer').style.display = 'block';
+            
+            // Mostra resultado
+            document.getElementById('finalScore').textContent = score + '/12';
+            
+            let level, resultText, recommendation;
+            
+            if (score <= 4) {
+                level = "INICIANTE";
+                resultText = "Você está começando sua jornada financeira. Com as orientações corretas, pode acelerar muito seus resultados.";
+                recommendation = "Foque em educação financeira básica, controle de gastos e criação de reserva emergencial.";
+            } else if (score <= 8) {
+                level = "INTERMEDIÁRIO";
+                resultText = "Você tem boa base, mas precisa de estratégias mais avançadas para alcançar a liberdade financeira.";
+                recommendation = "Diversificação de investimentos e estratégias de renda passiva são seus próximos passos.";
+            } else {
+                level = "AVANÇADO";
+                resultText = "Excelente! Você tem mentalidade de investidor. Agora precisa otimizar suas estratégias.";
+                recommendation = "Foque em otimização fiscal, investimentos internacionais e alavancagem inteligente.";
+            }
+            
+            document.getElementById('scoreLevel').textContent = level;
+            document.getElementById('resultText').textContent = resultText;
+            document.getElementById('recommendationText').textContent = recommendation;
+        }
+
+        function showPayment() {
+            document.getElementById('resultContainer').style.display = 'none';
+            document.getElementById('paymentContainer').style.display = 'block';
+        }
+
         function voltarInicio() {
             window.location.href = "index.html";
         }
+
+        // Inicializa
+        updateProgress();
     </script>
 </body>
 </html>
