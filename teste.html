@@ -150,6 +150,17 @@
             margin: 15px 0;
             border-left: 4px solid #dc3545;
         }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1.4em;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -317,16 +328,17 @@
             </div>
 
             <div class="bonus">
-                <h3>🎁 OFERTA ESPECIAL POR TEMPO LIMITADO:</h3>
-                <p>🔥 <strong>Plano Mentalidade Milionária</strong> - Apenas <strong>R$ 19,99</strong></p>
-                <p>✅ Plano de ação 100% personalizado</p>
-                <p>✅ Estratégias de investimento comprovadas</p>
-                <p>✅ Acesso à comunidade exclusiva</p>
-                <p>✅ Suporte individual por 30 dias</p>
+                <h3>🎁 OFERTA ESPECIAL: EBOOK + ANÁLISE DETALHADA</h3>
+                <div class="price-tag">APENAS R$ 7,99</div>
+                <p>✅ <strong>Ebook "Estratégias Financeiras 2025"</strong> (32 páginas)</p>
+                <p>✅ Análise personalizada do seu perfil</p>
+                <p>✅ Planilha de controle financeiro</p>
+                <p>✅ Checklist de 6 meses</p>
+                <p>✅ Acesso imediato após pagamento</p>
             </div>
 
             <button class="btn btn-payment" onclick="showPayment()">
-                💎 QUERO MEU PLANO PERSONALIZADO - R$ 19,99
+                💎 QUERO O EBOOK COMPLETO - R$ 7,99
             </button>
             
             <button class="btn" onclick="voltarInicio()">↩ Voltar ao Início</button>
@@ -334,34 +346,37 @@
 
         <!-- TELA DE PAGAMENTO -->
         <div class="payment-container" id="paymentContainer">
-            <h2>💰 ACESSO AO PLANO MILIONÁRIO</h2>
+            <h2>💰 EBOOK ESTRATÉGIAS FINANCEIRAS 2025</h2>
             
             <div class="recommendation">
-                <h3>🎁 O que você vai receber por apenas R$ 19,99:</h3>
-                <p>✅ <strong>Plano de ação 100% personalizado</strong></p>
-                <p>✅ Estratégias de investimento comprovadas</p>
-                <p>✅ Acesso à comunidade exclusiva</p>
-                <p>✅ Suporte individual por 30 dias</p>
-                <p>✅ Bônus: Curso de educação financeira</p>
+                <h3>🎁 O que você vai receber por apenas R$ 7,99:</h3>
+                <p>✅ <strong>Ebook completo (32 páginas)</strong></p>
+                <p>✅ 5 estratégias de economia para 2025</p>
+                <p>✅ Roteiro do investidor iniciante</p>
+                <p>✅ Checklist dos próximos 6 meses</p>
+                <p>✅ Planilha de controle financeiro (bônus)</p>
+                <p>✅ Análise personalizada do seu teste</p>
             </div>
 
-            <!-- BOTÃO DO MERCADO PAGO -->
+            <div class="price-tag">R$ 7,99</div>
+
+            <!-- BOTÃO DO MERCADO PAGO - SUBSTITUA PELO SEU LINK -->
             <div style="text-align: center; margin: 20px 0;">
-                <a href="https://mpago.la/1hHqa4e" 
+                <a href="https://mpago.la/SEU_NOVO_LINK_AQUI" 
                    class="btn btn-payment" 
                    style="text-decoration: none; display: inline-block;"
                    target="_blank">
-                   💳 COMPRAR AGORA - R$ 19,99
+                   💳 COMPRAR AGORA - R$ 7,99
                 </a>
             </div>
             
             <div class="error-message">
                 <strong>⚠️ Problema com o pagamento?</strong><br>
                 Clique diretamente neste link: <br>
-                <a href="https://mpago.la/1hHqa4e" style="color: #007bff; word-break: break-all;" target="_blank">https://mpago.la/1hHqa4e</a>
+                <a href="https://mpago.la/SEU_NOVO_LINK_AQUI" style="color: #007bff; word-break: break-all;" target="_blank">https://mpago.la/SEU_NOVO_LINK_AQUI</a>
             </div>
             
-            <p style="margin: 15px 0; color: #666;">Pagamento 100% seguro via Mercado Pago</p>
+            <p style="margin: 15px 0; color: #666;">Pagamento 100% seguro via Mercado Pago • Acesso imediato</p>
             
             <button class="btn" onclick="voltarInicio()">↩ Voltar ao Início</button>
         </div>
