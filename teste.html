@@ -112,7 +112,7 @@
         }
         
         .btn-payment {
-            background: linear-gradient(135deg, #009ee3, #00c4ff);
+            background: linear-gradient(135deg, #28a745, #20c997);
             padding: 20px 40px;
             font-size: 1.3em;
             font-weight: bold;
@@ -132,6 +132,14 @@
             border-radius: 10px;
             margin: 20px 0;
             border-left: 4px solid #28a745;
+        }
+        
+        .bonus {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
         }
     </style>
 </head>
@@ -197,8 +205,16 @@
                 <p id="recommendationText">Para alcançar seus objetivos, você precisa de um plano específico e orientação especializada.</p>
             </div>
 
+            <div class="bonus">
+                <h3>🎁 OFERTA ESPECIAL POR TEMPO LIMITADO:</h3>
+                <p>🔥 <strong>Plano Mentalidade Milionária</strong> - Apenas <strong>R$ 19,99</strong></p>
+                <p>✅ Plano de ação 100% personalizado</p>
+                <p>✅ Estratégias de investimento comprovadas</p>
+                <p>✅ Acesso à comunidade exclusiva</p>
+            </div>
+
             <button class="btn btn-payment" onclick="showPayment()">
-                💎 QUERO MEU PLANO PERSONALIZADO - R$ 97,00
+                💎 QUERO MEU PLANO PERSONALIZADO - R$ 19,99
             </button>
             
             <button class="btn" onclick="voltarInicio()">↩ Voltar ao Início</button>
@@ -207,23 +223,26 @@
         <!-- TELA DE PAGAMENTO -->
         <div class="payment-container" id="paymentContainer">
             <h2>💰 ACESSO AO PLANO MILIONÁRIO</h2>
+            
             <div class="recommendation">
-                <h3>O que você vai receber:</h3>
-                <p>✅ Plano de ação 100% personalizado</p>
+                <h3>🎁 O que você vai receber por apenas R$ 19,99:</h3>
+                <p>✅ <strong>Plano de ação 100% personalizado</strong></p>
                 <p>✅ Estratégias de investimento comprovadas</p>
                 <p>✅ Acesso à comunidade exclusiva</p>
                 <p>✅ Suporte individual por 30 dias</p>
                 <p>✅ Bônus: Curso de educação financeira</p>
             </div>
 
-            <!-- BOTÃO DO MERCADO PAGO - SUBSTITUA SEU LINK AQUI -->
-            <a href="https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=SEU_CODIGO_AQUI" 
+            <!-- BOTÃO DO MERCADO PAGO COM SEU LINK -->
+            <a href="https://mpago.la/1hHqa4e" 
                class="btn btn-payment" 
-               style="text-decoration: none; display: inline-block;">
-               💳 PAGAR COM MERCADO PAGO - R$ 97,00
+               style="text-decoration: none; display: inline-block;"
+               target="_blank">
+               💳 COMPRAR AGORA - R$ 19,99
             </a>
             
             <p style="margin: 15px 0; color: #666;">Pagamento 100% seguro via Mercado Pago</p>
+            <p style="margin: 10px 0; color: #888; font-size: 0.9em;">⚠️ Oferta por tempo limitado</p>
             
             <button class="btn" onclick="voltarInicio()">↩ Voltar ao Início</button>
         </div>
