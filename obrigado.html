@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste Financeiro - Mentalidade Milionária</title>
+    <title>Obrigado pela Compra! - Mentalidade Milionária</title>
     <style>
         * {
             margin: 0;
@@ -30,432 +30,171 @@
         .header {
             background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
-            padding: 30px;
+            padding: 40px 30px;
             text-align: center;
         }
         
-        .progress-bar {
-            background: #ecf0f1;
-            height: 10px;
-            border-radius: 5px;
-            margin: 20px 0;
-            overflow: hidden;
+        .content {
+            padding: 40px 30px;
         }
         
-        .progress {
+        .download-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .download-btn {
             background: linear-gradient(135deg, #28a745, #20c997);
-            height: 100%;
-            width: 0%;
-            transition: width 0.5s;
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            transition: transform 0.3s;
         }
         
-        .question-container {
-            padding: 30px;
-            display: block;
+        .download-btn:hover {
+            transform: translateY(-3px);
         }
         
-        .result-container {
-            padding: 30px;
-            display: none;
-        }
-        
-        .payment-container {
-            padding: 30px;
-            display: none;
+        .bonus {
+            background: #fff3cd;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid #ffc107;
             text-align: center;
         }
         
-        .question {
-            margin-bottom: 25px;
-        }
-        
-        .question h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-        
-        .options label {
-            display: block;
+        .step {
             background: #f8f9fa;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 8px;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
         }
         
-        .options label:hover {
-            border-color: #667eea;
-            background: #e9ecef;
-        }
-        
-        .options input[type="radio"] {
-            margin-right: 10px;
-        }
-        
-        .btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             padding: 15px 30px;
             border: none;
             border-radius: 50px;
             font-size: 1.1em;
             cursor: pointer;
-            margin: 10px 5px;
-            transition: transform 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
         }
         
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        .btn-payment {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            padding: 20px 40px;
-            font-size: 1.3em;
-            font-weight: bold;
-        }
-        
-        .result-score {
-            font-size: 3em;
-            font-weight: bold;
-            color: #28a745;
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .recommendation {
-            background: #e8f5e8;
+        .success-message {
+            background: #d4edda;
+            color: #155724;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
             margin: 20px 0;
             border-left: 4px solid #28a745;
+            text-align: center;
         }
-        
-        .bonus {
-            background: #fff3cd;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
-            border-left: 4px solid #ffc107;
-        }
-        
-        .error-message {
-            background: #f8d7da;
-            color: #721c24;
+
+        .auto-download {
+            background: #e3f2fd;
             padding: 15px;
             border-radius: 8px;
             margin: 15px 0;
-            border-left: 4px solid #dc3545;
-        }
-        
-        .price-tag {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 1.4em;
-            font-weight: bold;
-            display: inline-block;
-            margin: 10px 0;
+            border-left: 4px solid #2196f3;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔍 TESTE SEU POTENCIAL FINANCEIRO</h1>
-            <p>Responda com sinceridade para receber sua análise personalizada</p>
+            <h1>🎉 PAGAMENTO CONFIRMADO!</h1>
+            <p>Seu ebook está pronto para download</p>
         </div>
         
-        <div class="progress-bar">
-            <div class="progress" id="progress"></div>
-        </div>
-
-        <!-- TELA DO QUESTIONÁRIO - 12 PERGUNTAS -->
-        <div class="question-container" id="questionContainer">
-            <!-- PERGUNTA 1 -->
-            <div class="question" id="question1">
-                <h3>1. Qual é o seu conhecimento sobre investimentos?</h3>
-                <div class="options">
-                    <label><input type="radio" name="q1" value="1"> Iniciante - Sei pouco ou nada</label>
-                    <label><input type="radio" name="q1" value="2"> Básico - Conheço poupança e CDB</label>
-                    <label><input type="radio" name="q1" value="3"> Intermediário - Invisto em ações e FIIs</label>
-                    <label><input type="radio" name="q1" value="4"> Avançado - Tenho carteira diversificada</label>
-                </div>
+        <div class="content">
+            <div class="success-message">
+                <h3>✅ PAGAMENTO APROVADO!</h3>
+                <p>Obrigado por confiar em nosso trabalho. Seu ebook premium foi liberado!</p>
             </div>
 
-            <!-- PERGUNTA 2 -->
-            <div class="question" id="question2" style="display: none;">
-                <h3>2. Quanto você consegue economizar por mês?</h3>
-                <div class="options">
-                    <label><input type="radio" name="q2" value="1"> Menos de R$ 100</label>
-                    <label><input type="radio" name="q2" value="2"> Entre R$ 100 e R$ 500</label>
-                    <label><input type="radio" name="q2" value="3"> Entre R$ 500 e R$ 1.000</label>
-                    <label><input type="radio" name="q2" value="4"> Mais de R$ 1.000</label>
-                </div>
+            <div class="auto-download">
+                <p>⏳ <strong>Download iniciando automaticamente...</strong></p>
             </div>
 
-            <!-- PERGUNTA 3 -->
-            <div class="question" id="question3" style="display: none;">
-                <h3>3. Qual seu principal objetivo financeiro?</h3>
-                <div class="options">
-                    <label><input type="radio" name="q3" value="1"> Sair das dívidas</label>
-                    <label><input type="radio" name="q3" value="2"> Formar uma reserva de emergência</label>
-                    <label><input type="radio" name="q3" value="3"> Aumentar minha renda</label>
-                    <label><input type="radio" name="q3" value="4"> Liberdade financeira</label>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 4 -->
-            <div class="question" id="question4" style="display: none;">
-                <h3>4. Como você lida com dívidas?</h3>
-                <div class="options">
-                    <label><input type="radio" name="q4" value="1"> Estou endividado e não consigo pagar</label>
-                    <label><input type="radio" name="q4" value="2"> Tenho dívidas, mas estou pagando</label>
-                    <label><input type="radio" name="q4" value="3"> Não tenho dívidas, mas também não sobra</label>
-                    <label><input type="radio" name="q4" value="4"> Não tenho dívidas e invisto regularmente</label>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 5 -->
-            <div class="question" id="question5" style="display: none;">
-                <h3>5. Qual é o valor da sua reserva de emergência?</h3>
-                <div class="options">
-                    <label><input type="radio" name="q5" value="1"> Não tenho reserva</label>
-                    <label><input type="radio" name="q5" value="2"> Menos de 1 mês de despesas</label>
-                    <label><input type="radio" name="q5" value="3"> De 1 a 3 meses de despesas</label>
-                    <label><input type="radio" name="q5" value="4"> Mais de 6 meses de despesas</label>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 6 -->
-            <div class="question" id="question6" style="display: none;">
-                <h3>6. Como você planeja sua aposentadoria?</h3>
-                <div class="options">
-                    <label><input type="radio" name="q6" value="1"> Não penso nisso ainda</label>
-                    <label><input type="radio" name="q6" value="2"> Conto apenas com INSS</label>
-                    <label><input type="radio" name="q6" value="3"> Tenho previdência privada</label>
-                    <label><input type="radio" name="q6" value="4"> Tenho múltiplas fontes de renda passiva</label>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 7 -->
-            <div class="question" id="question7" style="display: none;">
-                <h3>7. Qual sua familiaridade com educação financeira?</h3>
-                <div class="options">
-                    <label><input type="radio" name="q7" value="1"> Nunca estudei sobre</label>
-                    <label><input type="radio" name="q7" value="2"> Já li alguns artigos/vídeos</label>
-                    <label><input type="radio" name="q7" value="3"> Já fiz cursos básicos</label>
-                    <label><input type="radio" name="q7" value="4"> Tenho conhecimento avançado</label>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 8 -->
-            <div class="question" id="question8" style="display: none;">
-                <h3>8. Como você acompanha seus gastos?</h3>
-                <div class="options">
-                    <label><input type="radio" name="q8" value="1"> Não acompanho</label>
-                    <label><input type="radio" name="q8" value="2"> Anoto às vezes</label>
-                    <label><input type="radio" name="q8" value="3"> Uso planilha ou app</label>
-                    <label><input type="radio" name="q8" value="4"> Tenho orçamento detalhado e reviso mensalmente</label>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 9 -->
-            <div class="question" id="question9" style="display: none;">
-                <h3>9. Qual sua experiência com investimentos de risco?</h3>
-                <div class="options">
-                    <label><input type="radio" name="q9" value="1"> Só investimentos conservadores</label>
-                    <label><input type="radio" name="q9" value="2"> Já testei pequenos valores em renda variável</label>
-                    <label><input type="radio" name="q9" value="3"> Tenho parte da carteira em renda variável</label>
-                    <label><input type="radio" name="q9" value="4"> Tenho estratégia definida para diferentes perfis de risco</label>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 10 -->
-            <div class="question" id="question10" style="display: none;">
-                <h3>10. Como você busca aumentar sua renda?</h3>
-                <div class="options">
-                    <label><input type="radio" name="q10" value="1"> Dependo apenas do salário</label>
-                    <label><input type="radio" name="q10" value="2"> Faço alguns bicos extras</label>
-                    <label><input type="radio" name="q10" value="3"> Tenho renda extra constante</label>
-                    <label><input type="radio" name="q10" value="4"> Tenho múltiplas fontes de renda ativa e passiva</label>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 11 -->
-            <div class="question" id="question11" style="display: none;">
-                <h3>11. Qual seu conhecimento sobre impostos e otimização fiscal?</h3>
-                <div class="options">
-                    <label><input type="radio" name="q11" value="1"> Não entendo nada</label>
-                    <label><input type="radio" name="q11" value="2"> Conheço o básico do IR</label>
-                    <label><input type="radio" name="q11" value="3"> Busco otimizar meus impostos</label>
-                    <label><input type="radio" name="q11" value="4"> Tenho estratégia fiscal definida</label>
-                </div>
-            </div>
-
-            <!-- PERGUNTA 12 -->
-            <div class="question" id="question12" style="display: none;">
-                <h3>12. Qual sua mentalidade sobre riqueza?</h3>
-                <div class="options">
-                    <label><input type="radio" name="q12" value="1"> Dinheiro é difícil e escasso</label>
-                    <label><input type="radio" name="q12" value="2"> Posso melhorar minha situação</label>
-                    <label><input type="radio" name="q12" value="3"> Acredito que posso criar riqueza</label>
-                    <label><input type="radio" name="q12" value="4"> Tenho mentalidade de abundância e crio oportunidades</label>
-                </div>
-            </div>
-
-            <button class="btn" onclick="nextQuestion()" id="nextBtn">PRÓXIMA PERGUNTA</button>
-            <button class="btn" onclick="showResults()" id="resultsBtn" style="display: none;">VER MEU RESULTADO</button>
-        </div>
-
-        <!-- TELA DE RESULTADO -->
-        <div class="result-container" id="resultContainer">
-            <h2>🎯 SEU DIAGNÓSTICO FINANCEIRO COMPLETO</h2>
-            <div class="result-score" id="finalScore">0/48</div>
-            
-            <div class="recommendation">
-                <h3>📊 SUA PONTUAÇÃO: <span id="scoreLevel">INICIANTE</span></h3>
-                <p id="resultText">Com base nas suas respostas, identificamos grandes oportunidades de melhoria na sua educação financeira.</p>
-            </div>
-
-            <div class="recommendation">
-                <h3>🚀 PRÓXIMOS PASSOS RECOMENDADOS:</h3>
-                <p id="recommendationText">Para alcançar seus objetivos, você precisa de um plano específico e orientação especializada.</p>
+            <div class="download-section">
+                <h2>📥 BAIXE SEU EBOOK AGORA</h2>
+                <p>Clique no botão abaixo para download imediato:</p>
+                
+                <a href="https://drive.google.com/uc?export=download&id=1moGn2DLiPDFq8jRGZA3HTZ9SrIoHv9BV" 
+                   class="download-btn" 
+                   download="Estrategias-Financeiras-2025-Mentalidade-Milionaria.pdf"
+                   id="downloadLink">
+                    🚀 BAIXAR EBOOK COMPLETO (PDF - 20+ Páginas)
+                </a>
+                
+                <p style="margin-top: 10px; color: #666;">
+                    <strong>📚 20+ páginas de conteúdo premium • Atualizado 2025</strong>
+                </p>
             </div>
 
             <div class="bonus">
-                <h3>🎁 OFERTA ESPECIAL: EBOOK + ANÁLISE DETALHADA</h3>
-                <div class="price-tag">APENAS R$ 7,99</div>
-                <p>✅ <strong>Ebook "Estratégias Financeiras 2025"</strong> (20+ páginas)</p>
-                <p>✅ Análise personalizada do seu perfil</p>
-                <p>✅ Planilha de controle financeiro</p>
-                <p>✅ Checklist de 6 meses</p>
-                <p>✅ Acesso imediato após pagamento</p>
+                <h3>🎁 BÔNUS EXCLUSIVO</h3>
+                <p><strong>Planilha de Controle Financeiro 2025</strong></p>
+                <p style="color: #666; margin: 10px 0;">Disponível em breve por email!</p>
             </div>
 
-            <button class="btn btn-payment" onclick="showPayment()">
-                💎 QUERO O EBOOK COMPLETO - R$ 7,99
-            </button>
-            
-            <button class="btn" onclick="voltarInicio()">↩ Voltar ao Início</button>
-        </div>
-
-        <!-- TELA DE PAGAMENTO -->
-        <div class="payment-container" id="paymentContainer">
-            <h2>💰 EBOOK ESTRATÉGIAS FINANCEIRAS 2025</h2>
-            
-            <div class="recommendation">
-                <h3>🎁 O que você vai receber por apenas R$ 7,99:</h3>
-                <p>✅ <strong>Ebook completo (20+ páginas)</strong></p>
-                <p>✅ 5 estratégias de economia para 2025</p>
-                <p>✅ Roteiro do investidor iniciante</p>
-                <p>✅ Checklist dos próximos 6 meses</p>
-                <p>✅ Planilha de controle financeiro (bônus)</p>
-                <p>✅ Análise personalizada do seu teste</p>
+            <div class="step">
+                <h3>📋 COMO APROVEITAR AO MÁXIMO:</h3>
+                <ol>
+                    <li><strong>Salve o ebook</strong> - Baixe e guarde no seu computador/celular</li>
+                    <li><strong>Leia hoje mesmo</strong> - Não deixe para depois</li>
+                    <li><strong>Anote as estratégias</strong> - Aplique as que fazem sentido para você</li>
+                    <li><strong>Revise mensalmente</strong> - Acompanhe seu progresso</li>
+                </ol>
             </div>
 
-            <div class="price-tag">R$ 7,99</div>
-
-            <!-- BOTÃO DO MERCADO PAGO COM SEU LINK -->
-            <div style="text-align: center; margin: 20px 0;">
-                <a href="https://mpago.la/2NWuWvp" 
-                   class="btn btn-payment" 
-                   style="text-decoration: none; display: inline-block;"
-                   target="_blank">
-                   💳 COMPRAR AGORA - R$ 7,99
+            <div class="step">
+                <h3>💬 PRECISA DE AJUDA?</h3>
+                <p>Entre em contato conosco pelo WhatsApp:</p>
+                <a href="https://wa.me/5511999999999?text=Olá! Baixei o ebook Estratégias Financeiras 2025 e gostaria de tirar uma dúvida" 
+                   class="whatsapp-btn" target="_blank">
+                   📞 FALAR NO WHATSAPP
                 </a>
+                <p style="margin-top: 10px; color: #666; font-size: 0.9em;">
+                    Horário: Segunda a Sexta, 9h às 18h
+                </p>
             </div>
-            
-            <div class="error-message">
-                <strong>⚠️ Problema com o pagamento?</strong><br>
-                Clique diretamente neste link: <br>
-                <a href="https://mpago.la/2NWuWvp" style="color: #007bff; word-break: break-all;" target="_blank">https://mpago.la/2NWuWvp</a>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="download-btn" onclick="voltarInicio()" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                    🏠 Voltar ao Início
+                </button>
             </div>
-            
-            <p style="margin: 15px 0; color: #666;">Pagamento 100% seguro via Mercado Pago • Acesso imediato</p>
-            
-            <button class="btn" onclick="voltarInicio()">↩ Voltar ao Início</button>
         </div>
     </div>
 
     <script>
-        let currentQuestion = 1;
-        const totalQuestions = 12;
-        let score = 0;
-
-        function updateProgress() {
-            const progress = (currentQuestion / totalQuestions) * 100;
-            document.getElementById('progress').style.width = progress + '%';
-        }
-
-        function nextQuestion() {
-            const selectedOption = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
-            if (selectedOption) {
-                score += parseInt(selectedOption.value);
-            }
-
-            document.getElementById(`question${currentQuestion}`).style.display = 'none';
-            
-            currentQuestion++;
-            
-            if (currentQuestion <= totalQuestions) {
-                document.getElementById(`question${currentQuestion}`).style.display = 'block';
-                updateProgress();
-                
-                if (currentQuestion === totalQuestions) {
-                    document.getElementById('nextBtn').style.display = 'none';
-                    document.getElementById('resultsBtn').style.display = 'inline-block';
-                }
-            }
-        }
-
-        function showResults() {
-            const selectedOption = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
-            if (selectedOption) {
-                score += parseInt(selectedOption.value);
-            }
-
-            document.getElementById('questionContainer').style.display = 'none';
-            document.getElementById('resultContainer').style.display = 'block';
-            
-            document.getElementById('finalScore').textContent = score + '/48';
-            
-            let level, resultText, recommendation;
-            
-            if (score <= 16) {
-                level = "INICIANTE";
-                resultText = "Você está começando sua jornada financeira. Com as orientações corretas, pode acelerar muito seus resultados e evitar anos de tentativa e erro.";
-                recommendation = "Foque em educação financeira básica, controle de gastos, criação de reserva emergencial e eliminação de dívidas.";
-            } else if (score <= 32) {
-                level = "INTERMEDIÁRIO";
-                resultText = "Você tem boa base financeira, mas precisa de estratégias mais avançadas para alcançar a liberdade financeira e multiplicar seu patrimônio.";
-                recommendation = "Diversificação de investimentos, estratégias de renda passiva, otimização fiscal e planejamento para aposentadoria são seus próximos passos.";
-            } else {
-                level = "AVANÇADO";
-                resultText = "Excelente! Você tem mentalidade de investidor e já domina conceitos importantes. Agora precisa refinar estratégias e escalar resultados.";
-                recommendation = "Foque em otimização fiscal avançada, investimentos internacionais, alavancagem inteligente e criação de múltiplas fontes de renda.";
-            }
-            
-            document.getElementById('scoreLevel').textContent = level;
-            document.getElementById('resultText').textContent = resultText;
-            document.getElementById('recommendationText').textContent = recommendation;
-        }
-
-        function showPayment() {
-            document.getElementById('resultContainer').style.display = 'none';
-            document.getElementById('paymentContainer').style.display = 'block';
-        }
-
         function voltarInicio() {
-            window.location.href = "index.html";
+            window.location.href = "https://dinneismith93.github.io/teste-financeiro/";
         }
+        
+        // Download automático após 3 segundos
+        setTimeout(function() {
+            document.getElementById('downloadLink').click();
+        }, 3000);
 
-        // Inicializa
-        updateProgress();
+        // Mensagem de confirmação
+        setTimeout(function() {
+            alert("🎉 Obrigado pela compra! Seu download do ebook foi iniciado automaticamente.");
+        }, 1000);
     </script>
 </body>
 </html>
